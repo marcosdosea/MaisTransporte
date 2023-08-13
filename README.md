@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/marcosdosea/MaisTransporte/assets/105898363/51077b38-740d-4966-a0df-bfc15032ed5a" alt="Descrição da imagem">
+    <img src="https://github.com/marcosdosea/MaisTransporte/assets/105898363/51077b38-740d-4966-a0df-bfc15032ed5a" alt="Descrição da imagem">
 </p>
 <h1 align="center"> MaisTransporte </h1>
 
@@ -29,29 +29,29 @@ Os indivíduos que desejam realizar uma viagem, ir para uma festa, além dos mot
 <table style="border-collapse: collapse; border: 5px solid white;">
 <tr>
 <td align="center" style="border: 5px solid white; padding: 10px;">
-    <img src="https://avatars.githubusercontent.com/u/105898363?v=4" alt="Alesandro da Silva Santos" width="110px">
-    <br>
-    <a href="https://github.com/Alesandr0" target="_blank"> Alesandro da Silva Santos</a>
-    <div style="padding: 5px;">Desenvolvedor</div>
-    </td>
+    <img src="https://avatars.githubusercontent.com/u/105898363?v=4" alt="Alesandro da Silva Santos" width="110px">
+    <br>
+    <a href="https://github.com/Alesandr0" target="_blank"> Alesandro da Silva Santos</a>
+    <div style="padding: 5px;">Desenvolvedor</div>
+    </td>
 <td align="center" style="border: 5px solid white; padding: 10px;">
-    <img src="https://github.com/marcosdosea/MaisTransporte/assets/105898363/e0526e5e-064e-4b91-aa37-36c9ebf052e5" alt="Eliane Dantas de Jesus" width="110px">
-    <br>
-    <a href="https://github.com/Elianedantas" target="_blank">Eliane Dantas de Jesus</a>
-    <div style="padding: 5px;">Desenvolvedora</div>
+    <img src="https://github.com/marcosdosea/MaisTransporte/assets/105898363/e0526e5e-064e-4b91-aa37-36c9ebf052e5" alt="Eliane Dantas de Jesus" width="110px">
+    <br>
+    <a href="https://github.com/Elianedantas" target="_blank">Eliane Dantas de Jesus</a>
+    <div style="padding: 5px;">Desenvolvedora</div>
 </td>
 <td align="center" style="border: 5px solid white; padding: 10px;">
-    <img src="https://github.com/marcosdosea/MaisTransporte/assets/105898363/e283cf1e-c2df-43f7-bdbc-b326eeec5800" alt="Gilmario dos Santos Silva" width="110px">
-    <br>
-    <a href="https://github.com/gilmariosantos1" target="_blank">Gilmario dos Santos Silva</a>
-    <div style="padding: 5px;">Desenvolvedor</div>
+    <img src="https://github.com/marcosdosea/MaisTransporte/assets/105898363/e283cf1e-c2df-43f7-bdbc-b326eeec5800" alt="Gilmario dos Santos Silva" width="110px">
+    <br>
+    <a href="https://github.com/gilmariosantos1" target="_blank">Gilmario dos Santos Silva</a>
+    <div style="padding: 5px;">Desenvolvedor</div>
 </td>
-  <td align="center" style="border: 5px solid white; padding: 10px;">
-    <img src="https://github.com/marcosdosea/MaisTransporte/assets/105898363/cae82bd2-3ff3-4e4f-9d6e-c673d9730ea8" alt="Natalia da Silva Costa" width="110px">
-    <br>
-    <a href="https://github.com/nataliascosta" target="_blank">Natalia da Silva Costa</a>
-    <div style="padding: 5px;">Desenvolvedora</div>
+  <td align="center" style="border: 5px solid white; padding: 10px;">
+    <img src="https://avatars.githubusercontent.com/u/102239679?v=4" alt="Natalia da Silva Costa" width="110px">
+    <br>
+    <a href="https://github.com/nataliascosta" target="_blank">Natalia da Silva Costa</a>
+    <div style="padding: 5px;">Desenvolvedora</div>
 </table>
 <p align="center"> 
-  <img src="https://github.com/marcosdosea/MaisTransporte/assets/105898363/ad2c9860-287c-4989-a251-f24b36e4a97f">
+  <img src="https://github.com/marcosdosea/MaisTransporte/assets/105898363/ad2c9860-287c-4989-a251-f24b36e4a97f">
 </p>
