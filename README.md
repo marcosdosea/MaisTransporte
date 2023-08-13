@@ -35,7 +35,7 @@ Os indivíduos que desejam realizar uma viagem, ir para uma festa, além dos mot
     <div style="padding: 5px;">Desenvolvedor</div>
     </td>
 <td align="center" style="border: 5px solid white; padding: 10px;">
-    <img src="https://github.com/marcosdosea/MaisTransporte/assets/105898363/2e17507e-baba-42d3-9183-9cce8ad42e93" alt="Eliane Dantas de Jesus" width="110px">
+    <img src="https://github.com/marcosdosea/MaisTransporte/assets/105898363/e0526e5e-064e-4b91-aa37-36c9ebf052e5" alt="Eliane Dantas de Jesus" width="110px">
     <br>
     Eliane Dantas de Jesus
     <div style="padding: 5px;">Desenvolvedora</div>
@@ -55,3 +55,5 @@ Os indivíduos que desejam realizar uma viagem, ir para uma festa, além dos mot
 <p align="center"> 
   <img src="https://github.com/marcosdosea/MaisTransporte/assets/105898363/ad2c9860-287c-4989-a251-f24b36e4a97f">
 </p>
+
+
