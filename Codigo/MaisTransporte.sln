@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34009.444
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaisTransporteWeb", "MaisTransporteWeb\MaisTransporteWeb.csproj", "{DD6D7DFD-8401-4742-9003-445B2F5DB91A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{4CA1D48E-A61D-4761-B0B6-638E2160D8C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{26CE31C2-93AA-4D39-AA53-8156D4525655}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD6D7DFD-8401-4742-9003-445B2F5DB91A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD6D7DFD-8401-4742-9003-445B2F5DB91A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD6D7DFD-8401-4742-9003-445B2F5DB91A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD6D7DFD-8401-4742-9003-445B2F5DB91A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CA1D48E-A61D-4761-B0B6-638E2160D8C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CA1D48E-A61D-4761-B0B6-638E2160D8C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CA1D48E-A61D-4761-B0B6-638E2160D8C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CA1D48E-A61D-4761-B0B6-638E2160D8C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26CE31C2-93AA-4D39-AA53-8156D4525655}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26CE31C2-93AA-4D39-AA53-8156D4525655}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26CE31C2-93AA-4D39-AA53-8156D4525655}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26CE31C2-93AA-4D39-AA53-8156D4525655}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3FDCC494-5C09-46C0-AB29-3D9B6AB280CF}
+	EndGlobalSection
+EndGlobal
