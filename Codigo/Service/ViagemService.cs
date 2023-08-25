@@ -4,6 +4,9 @@ using Core;
 
 namespace Service
 {
+    /// <summary>
+    /// Manter dados de viagens no banco de dados
+    /// </summary>
     public class ViagemService : IViagemService
     {
         private readonly MaisTransporteContext _context;
@@ -13,6 +16,11 @@ namespace Service
             _context = context;
         }
 
+        /// <summary>
+        /// Insere uma nova viagem na base de dados
+        /// </summary>
+        /// <param name="viagem">dados da viagem</param>
+        /// <returns></returns>
         public int Create(Viagem viagem)
         {
             _context.Add(viagem);
@@ -25,11 +33,20 @@ namespace Service
             return _context.Viagems.Find(id);
         }
 
+        /// <summary>
+        /// Obtém todas as viagens
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<Viagem> GetAll()
         {
             return _context.Viagems;
         }
 
+        /// <summary>
+        /// Obtém viagens que possuem o localDestino
+        /// </summary>
+        /// <param name="localDestino">localDestino a ser buscado</param>
+        /// <returns></returns>
         public IEnumerable<ViagemDto> GetByLocalDestino(string localDestino)
         {
             IQueryable<Viagem> tb_viagem = _context.Viagems;
