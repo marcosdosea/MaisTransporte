@@ -2617,19 +2617,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Eliane Dantas\\.nuget\\packages\\": {}
+    "C:\\Users\\alesa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Eliane Dantas\\Documents\\GitHub\\MaisTransporte\\Codigo\\Core\\Core.csproj",
+      "projectUniqueName": "C:\\Users\\alesa\\OneDrive\\Documentos\\MaisTransporte\\Codigo\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "C:\\Users\\Eliane Dantas\\Documents\\GitHub\\MaisTransporte\\Codigo\\Core\\Core.csproj",
-      "packagesPath": "C:\\Users\\Eliane Dantas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Eliane Dantas\\Documents\\GitHub\\MaisTransporte\\Codigo\\Core\\obj\\",
+      "projectPath": "C:\\Users\\alesa\\OneDrive\\Documentos\\MaisTransporte\\Codigo\\Core\\Core.csproj",
+      "packagesPath": "C:\\Users\\alesa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alesa\\OneDrive\\Documentos\\MaisTransporte\\Codigo\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Eliane Dantas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\alesa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
