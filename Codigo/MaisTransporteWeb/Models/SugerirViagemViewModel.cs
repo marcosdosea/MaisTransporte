@@ -4,6 +4,10 @@ namespace MaisTransporteWeb.Models
 {
     public class SugerirViagemViewModel
     {
+        [Display(Name = "Código")]
+        [Required]
+        public int Id { get; set; }
+
         [Display(Name = "Título")]
         [Required]
         public string Titulo { get; set; } = null!;
