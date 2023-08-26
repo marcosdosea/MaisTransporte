@@ -1,0 +1,88 @@
+﻿@model MaisTransporteWeb.Models.SugerirViagemViewModel
+
+@{
+    ViewData["Title"] = "Criar Sugestão de Viagem";
+}
+
+<h1>Criar Sugestão de Viagem</h1>
+
+<h4>Sugerir Viageml</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Titulo" class="control-label"></label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LocalOrigem" class="control-label"></label>
+                <input asp-for="LocalOrigem" class="form-control" />
+                <span asp-validation-for="LocalOrigem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LocalDestino" class="control-label"></label>
+                <input asp-for="LocalDestino" class="form-control" />
+                <span asp-validation-for="LocalDestino" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorPassagem" class="control-label"></label>
+                <input asp-for="ValorPassagem" class="form-control" />
+                <span asp-validation-for="ValorPassagem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalVagas" class="control-label"></label>
+                <input asp-for="TotalVagas" class="form-control" />
+                <span asp-validation-for="TotalVagas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataPartida" class="control-label"></label>
+                <input asp-for="DataPartida" class="form-control" />
+                <span asp-validation-for="DataPartida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataChegada" class="control-label"></label>
+                <input asp-for="DataChegada" class="form-control" />
+                <span asp-validation-for="DataChegada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HorarioPartida" class="control-label"></label>
+                <input asp-for="HorarioPartida" class="form-control" />
+                <span asp-validation-for="HorarioPartida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HorarioChegada" class="control-label"></label>
+                <input asp-for="HorarioChegada" class="form-control" />
+                <span asp-validation-for="HorarioChegada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Criar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
