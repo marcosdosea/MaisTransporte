@@ -4,7 +4,11 @@ namespace MaisTransporteWeb.Models
 {
     public class ViagemViewModel
     {
-        [Display(Name = "Título")]
+        [Display(Name = "Código")]
+        [Required]
+        public int Id { get; set; }
+
+        [Display(Name = "Título")]
         [Required]
         public string Titulo { get; set; } = null!;
 
