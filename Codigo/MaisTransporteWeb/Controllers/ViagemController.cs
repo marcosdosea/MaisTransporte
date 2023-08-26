@@ -39,5 +39,17 @@ namespace MaisTransporteWeb.Controllers
             return View();
         }
 
+        // POST: ViagemController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(ViagemViewModel viagemViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var viagem = mapper.Map<Viagem>(viagemViewModel);
+                viagemService.Create(viagem);
+            }
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
