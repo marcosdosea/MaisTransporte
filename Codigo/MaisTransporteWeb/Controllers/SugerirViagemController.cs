@@ -4,7 +4,7 @@ using Core;
 using Core.Service;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BibliotecaWeb.Controllers
+namespace MaisTransporteWeb.Controllers
 {
     public class SugerirViagemController : Controller
     {
