@@ -17,6 +17,7 @@ namespace MaisTransporteWeb.Controllers
             this.mapper = mapper;
         }
 
+        // GET: ViagemController
         public ActionResult Index()
         {
             var listaViagens = viagemService.GetAll();
@@ -24,6 +25,7 @@ namespace MaisTransporteWeb.Controllers
             return View(listaViagemViewModel);
         }
 
+        // GET: ViagemController/Details
         public ActionResult Details(int id)
         {
             var viagem = viagemService.Get(id);
@@ -31,6 +33,7 @@ namespace MaisTransporteWeb.Controllers
             return View(viagemViewModel);
         }
 
+        // GET: ViagemController/Create
         public ActionResult Create()
         {
             return View();
