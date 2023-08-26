@@ -30,13 +30,13 @@ namespace Service
             return _context.Sugestaoviagems;
         }
 
-        public IEnumerable<SugestaoViagemDto> GetByLocalDestino(string localDestino)
+        public IEnumerable<SugerirViagemDto> GetByLocalDestino(string localDestino)
         {
             IQueryable<Sugestaoviagem> tb_sugestaoViagem = _context.Sugestaoviagems;
             var query = from sugestaoviagem in tb_sugestaoViagem
                         where localDestino.StartsWith(localDestino)
                         orderby sugestaoviagem.LocalDestino descending
-                        select new SugestaoViagemDto
+                        select new SugerirViagemDto
                         {
                             LocalDestino = sugestaoviagem.LocalDestino
                         };
