@@ -8,6 +8,6 @@ namespace Core.Service
         Sugestaoviagem Get(int id);
 
         IEnumerable<Sugestaoviagem> GetAll();
-        IEnumerable<SugestaoViagemDto> GetByLocalDestino(string localDestino);
+        IEnumerable<SugerirViagemDto> GetByLocalDestino(string localDestino);
     }
 }
