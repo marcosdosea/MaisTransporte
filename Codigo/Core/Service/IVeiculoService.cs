@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Core.Service
 {
-    internal interface IVeiculoService
+    public interface IVeiculoService
     {
         int Create(Veiculo veiculo);
         Veiculo Get(int id);
