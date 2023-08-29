@@ -12,7 +12,6 @@ namespace Core.Service
         int Create(Veiculo veiculo);
         Veiculo Get(int id);
         void Edit(Veiculo veiculo);
-        void Delete(int id);
         IEnumerable<Veiculo> GetAll();
     }
 }
