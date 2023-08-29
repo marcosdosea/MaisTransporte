@@ -12,3 +12,17 @@ C:\Users\Eliane Dantas\Documents\GitHub\MaisTransporte\Codigo\Core\obj\Debug\net
 C:\Users\Eliane Dantas\Documents\GitHub\MaisTransporte\Codigo\Core\obj\Debug\net6.0\Core.pdb
 C:\Users\Eliane Dantas\Documents\GitHub\MaisTransporte\Codigo\Core\obj\Debug\net6.0\Core.genruntimeconfig.cache
 C:\Users\Eliane Dantas\Documents\GitHub\MaisTransporte\Codigo\Core\obj\Debug\net6.0\ref\Core.dll
+C:\Users\gildo\OneDrive\Documentos\UFS\Engenharia de Software II\Branch_#169\MaisTransporte\Codigo\Core\bin\Debug\net6.0\Core.deps.json
+C:\Users\gildo\OneDrive\Documentos\UFS\Engenharia de Software II\Branch_#169\MaisTransporte\Codigo\Core\bin\Debug\net6.0\Core.runtimeconfig.json
+C:\Users\gildo\OneDrive\Documentos\UFS\Engenharia de Software II\Branch_#169\MaisTransporte\Codigo\Core\bin\Debug\net6.0\Core.dll
+C:\Users\gildo\OneDrive\Documentos\UFS\Engenharia de Software II\Branch_#169\MaisTransporte\Codigo\Core\bin\Debug\net6.0\Core.pdb
+C:\Users\gildo\OneDrive\Documentos\UFS\Engenharia de Software II\Branch_#169\MaisTransporte\Codigo\Core\obj\Debug\net6.0\Core.csproj.AssemblyReference.cache
+C:\Users\gildo\OneDrive\Documentos\UFS\Engenharia de Software II\Branch_#169\MaisTransporte\Codigo\Core\obj\Debug\net6.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gildo\OneDrive\Documentos\UFS\Engenharia de Software II\Branch_#169\MaisTransporte\Codigo\Core\obj\Debug\net6.0\Core.AssemblyInfoInputs.cache
+C:\Users\gildo\OneDrive\Documentos\UFS\Engenharia de Software II\Branch_#169\MaisTransporte\Codigo\Core\obj\Debug\net6.0\Core.AssemblyInfo.cs
+C:\Users\gildo\OneDrive\Documentos\UFS\Engenharia de Software II\Branch_#169\MaisTransporte\Codigo\Core\obj\Debug\net6.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\gildo\OneDrive\Documentos\UFS\Engenharia de Software II\Branch_#169\MaisTransporte\Codigo\Core\obj\Debug\net6.0\Core.dll
+C:\Users\gildo\OneDrive\Documentos\UFS\Engenharia de Software II\Branch_#169\MaisTransporte\Codigo\Core\obj\Debug\net6.0\refint\Core.dll
+C:\Users\gildo\OneDrive\Documentos\UFS\Engenharia de Software II\Branch_#169\MaisTransporte\Codigo\Core\obj\Debug\net6.0\Core.pdb
+C:\Users\gildo\OneDrive\Documentos\UFS\Engenharia de Software II\Branch_#169\MaisTransporte\Codigo\Core\obj\Debug\net6.0\Core.genruntimeconfig.cache
+C:\Users\gildo\OneDrive\Documentos\UFS\Engenharia de Software II\Branch_#169\MaisTransporte\Codigo\Core\obj\Debug\net6.0\ref\Core.dll

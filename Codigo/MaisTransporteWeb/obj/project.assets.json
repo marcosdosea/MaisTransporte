@@ -10758,19 +10758,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Eliane Dantas\\.nuget\\packages\\": {}
+    "C:\\Users\\gildo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Eliane Dantas\\Documents\\GitHub\\MaisTransporte\\Codigo\\MaisTransporteWeb\\MaisTransporteWeb.csproj",
+      "projectUniqueName": "C:\\Users\\gildo\\OneDrive\\Documentos\\UFS\\Engenharia de Software II\\Branch_#169\\MaisTransporte\\Codigo\\MaisTransporteWeb\\MaisTransporteWeb.csproj",
       "projectName": "MaisTransporteWeb",
-      "projectPath": "C:\\Users\\Eliane Dantas\\Documents\\GitHub\\MaisTransporte\\Codigo\\MaisTransporteWeb\\MaisTransporteWeb.csproj",
-      "packagesPath": "C:\\Users\\Eliane Dantas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Eliane Dantas\\Documents\\GitHub\\MaisTransporte\\Codigo\\MaisTransporteWeb\\obj\\",
+      "projectPath": "C:\\Users\\gildo\\OneDrive\\Documentos\\UFS\\Engenharia de Software II\\Branch_#169\\MaisTransporte\\Codigo\\MaisTransporteWeb\\MaisTransporteWeb.csproj",
+      "packagesPath": "C:\\Users\\gildo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gildo\\OneDrive\\Documentos\\UFS\\Engenharia de Software II\\Branch_#169\\MaisTransporte\\Codigo\\MaisTransporteWeb\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Eliane Dantas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\gildo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10784,11 +10784,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Eliane Dantas\\Documents\\GitHub\\MaisTransporte\\Codigo\\Core\\Core.csproj": {
-              "projectPath": "C:\\Users\\Eliane Dantas\\Documents\\GitHub\\MaisTransporte\\Codigo\\Core\\Core.csproj"
+            "C:\\Users\\gildo\\OneDrive\\Documentos\\UFS\\Engenharia de Software II\\Branch_#169\\MaisTransporte\\Codigo\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\gildo\\OneDrive\\Documentos\\UFS\\Engenharia de Software II\\Branch_#169\\MaisTransporte\\Codigo\\Core\\Core.csproj"
             },
-            "C:\\Users\\Eliane Dantas\\Documents\\GitHub\\MaisTransporte\\Codigo\\Service\\Service.csproj": {
-              "projectPath": "C:\\Users\\Eliane Dantas\\Documents\\GitHub\\MaisTransporte\\Codigo\\Service\\Service.csproj"
+            "C:\\Users\\gildo\\OneDrive\\Documentos\\UFS\\Engenharia de Software II\\Branch_#169\\MaisTransporte\\Codigo\\Service\\Service.csproj": {
+              "projectPath": "C:\\Users\\gildo\\OneDrive\\Documentos\\UFS\\Engenharia de Software II\\Branch_#169\\MaisTransporte\\Codigo\\Service\\Service.csproj"
             }
           }
         }
