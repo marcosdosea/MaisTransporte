@@ -48,8 +48,8 @@ namespace MaisTransporteWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var Usuario = mapper.Map<Usuario>(usuarioViewModel);
-                usuarioService.Create(Usuario);
+                var usuario = mapper.Map<Passageiro>(usuarioViewModel);
+                usuarioService.Create(usuario);
             }
             return RedirectToAction(nameof(Index));
         }
@@ -57,9 +57,9 @@ namespace MaisTransporteWeb.Controllers
         // GET: UsuarioController/Edit/5
         public ActionResult Edit(int id)
         {
-            Passageiro passageiro = UsuarioService.Get(id);
-            UsuarioViewModel usuarioViewModel = Mapper.Map<UsuarioViewModel>(passageiro);
-            return View(UsuarioViewModel);
+            Passageiro passageiro = usuarioService.Get(id);
+            UsuarioViewModel usuarioViewModel = mapper.Map<UsuarioViewModel>(passageiro);
+            return View(usuarioViewModel);
         }
         // POST: UsuarioController/Edit/5
         [HttpPost]
@@ -68,8 +68,8 @@ namespace MaisTransporteWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var passageiro = Mapper.Map<Passageiro>(UsuarioViewModel);
-                UsuarioService.Edit(passageiro);
+                var passageiro = mapper.Map<Passageiro>(usuarioModel);
+                usuarioService.Edit(passageiro);
             }
             return RedirectToAction(nameof(Index));
         }
@@ -77,8 +77,8 @@ namespace MaisTransporteWeb.Controllers
         // GET: UsuarioController/Delete/5
         public ActionResult Delete(int id)
         {
-            Passageiro passageiro = UsuarioService.Get(id);
-            UsuarioViewModel usuarioViewModel = Mapper.Map<UsuarioViewModel>(passageiro);
+            Passageiro passageiro = usuarioService.Get(id);
+            UsuarioViewModel usuarioViewModel = mapper.Map<UsuarioViewModel>(passageiro);
             return View(usuarioViewModel);
         }
 
@@ -87,7 +87,7 @@ namespace MaisTransporteWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, UsuarioViewModel usuarioModel)
         {
-            UsuarioService.Delete(id);
+            usuarioService.Delete(id);
             return RedirectToAction(nameof(Index));
         }
     }
