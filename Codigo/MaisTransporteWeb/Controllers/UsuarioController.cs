@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Core;
 using Core.Service;
 using MaisTransporteWeb.Models;
@@ -57,43 +57,38 @@ namespace MaisTransporteWeb.Controllers
         // GET: UsuarioController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Passageiro passageiro = UsuarioService.Get(id);
+            UsuarioViewModel usuarioViewModel = Mapper.Map<UsuarioViewModel>(passageiro);
+            return View(UsuarioViewModel);
         }
-
         // POST: UsuarioController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, UsuarioViewModel usuarioModel)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                var passageiro = Mapper.Map<Passageiro>(UsuarioViewModel);
+                UsuarioService.Edit(passageiro);
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: UsuarioController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            Passageiro passageiro = UsuarioService.Get(id);
+            UsuarioViewModel usuarioViewModel = Mapper.Map<UsuarioViewModel>(passageiro);
+            return View(usuarioViewModel);
         }
 
         // POST: UsuarioController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, UsuarioViewModel usuarioModel)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            UsuarioService.Delete(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
