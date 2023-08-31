@@ -9,91 +9,58 @@
 <p>
     <a asp-action="Create">Nova Sugestão de Viagem</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Titulo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LocalOrigem)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LocalDestino)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ValorPassagem)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalVagas)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataPartida)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataChegada)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HorarioPartida)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HorarioChegada)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descricao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Titulo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LocalOrigem)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LocalDestino)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ValorPassagem)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalVagas)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataPartida)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataChegada)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HorarioPartida)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HorarioChegada)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.ActionLink("Detalhes", "Detalhes", new { id=item.Id}) 
-            </td>
-        </tr>
+
+<!--Parte q será removida.-->
+<div class="w3-row">
+    <div class="w3-col w3-green w3-container" style="width:45%">
+        <img src="images/img-01.1.png" alt="Nome da img">
+    </div>
+    <div class="w3-col w3-dark-grey w3-container" style="width:55%">
+        <h5>@Html.DisplayNameFor(model => model.Titulo):</h5>
+        <h6>@Html.DisplayNameFor(model => model.DataPartida):</h6>
+        <h6>@Html.DisplayNameFor(model => model.HorarioPartida):</h6>
+        <h6>@Html.DisplayNameFor(model => model.TotalVagas):</h6>
+        <button type="button" class="btn btn-dark" data-toggle="tooltip" data-placement="right" onclick="alert('Aceitar a viagem?')">Aceitar</button>
+        <p>
+            <a asp-action="Details">Mais detalhes</a>
+        </p>
+    </div>
+</div>
+<hr>
+<div class="w3-row">
+    <div class="w3-col w3-green w3-container" style="width:45%">
+        <img src="images/img-01.1.png" alt="Nome da img">
+    </div>
+    <div class="w3-col w3-dark-grey w3-container" style="width:55%">
+        <h5>@Html.DisplayNameFor(model => model.Titulo):</h5>
+        <h6>@Html.DisplayNameFor(model => model.DataPartida):</h6>
+        <h6>@Html.DisplayNameFor(model => model.HorarioPartida):</h6>
+        <h6>@Html.DisplayNameFor(model => model.TotalVagas):</h6>
+        <button type="button" class="btn btn-dark" data-toggle="tooltip" data-placement="right" onclick="alert('Aceitar a viagem?')">Aceitar</button>
+        <p>
+            <a asp-action="Details">Mais detalhes</a>
+        </p>
+    </div>
+</div>
+<hr>
+
+@foreach (var item in Model)
+{
+    <div class="w3-row">
+        <div class="w3-col w3-green w3-container" style="width:45%">
+            <img src="images/img-01.1.png" alt="Nome da img">
+        </div>
+        <div class="w3-col w3-dark-grey w3-container" style="width:55%">
+            <h5>@Html.DisplayNameFor(model => model.Titulo): @Html.DisplayFor(modelItem => item.Titulo)</h5>
+            <h6>@Html.DisplayNameFor(model => model.DataPartida): @Html.DisplayFor(modelItem => item.TotalVagas)</h6>
+            <h6>@Html.DisplayNameFor(model => model.HorarioPartida): @Html.DisplayFor(modelItem => item.DataPartida)</h6>
+            <h6>@Html.DisplayNameFor(model => model.TotalVagas): @Html.DisplayFor(modelItem => item.HorarioPartida)</h6>
+            <button type="button" class="btn btn-dark" data-toggle="tooltip" data-placement="right" onclick="alert('Aceitar a viagem?')">Aceitar</button>
+            <p>
+                <a asp-action="Details">Mais detalhes</a>
+            </p>
+                @Html.ActionLink("Details", "Details", new { id=item.Id})
+        </div>
+    </div>
+    <hr>
 }
-    </tbody>
-</table>
