@@ -18,7 +18,6 @@
     <div class="w3-col w3-dark-grey w3-container" style="width:55%">
         <h5>@Html.DisplayNameFor(model => model.Titulo):</h5>
         <h6>@Html.DisplayNameFor(model => model.DataPartida):</h6>
-        <h6>@Html.DisplayNameFor(model => model.HorarioPartida):</h6>
         <h6>@Html.DisplayNameFor(model => model.TotalVagas):</h6>
         <button type="button" class="btn btn-dark" data-toggle="tooltip" data-placement="right" onclick="alert('Aceitar a viagem?')">Aceitar</button>
         <p>
@@ -34,7 +33,6 @@
     <div class="w3-col w3-dark-grey w3-container" style="width:55%">
         <h5>@Html.DisplayNameFor(model => model.Titulo):</h5>
         <h6>@Html.DisplayNameFor(model => model.DataPartida):</h6>
-        <h6>@Html.DisplayNameFor(model => model.HorarioPartida):</h6>
         <h6>@Html.DisplayNameFor(model => model.TotalVagas):</h6>
         <button type="button" class="btn btn-dark" data-toggle="tooltip" data-placement="right" onclick="alert('Aceitar a viagem?')">Aceitar</button>
         <p>
@@ -52,9 +50,8 @@
         </div>
         <div class="w3-col w3-dark-grey w3-container" style="width:55%">
             <h5>@Html.DisplayNameFor(model => model.Titulo): @Html.DisplayFor(modelItem => item.Titulo)</h5>
-            <h6>@Html.DisplayNameFor(model => model.DataPartida): @Html.DisplayFor(modelItem => item.TotalVagas)</h6>
-            <h6>@Html.DisplayNameFor(model => model.HorarioPartida): @Html.DisplayFor(modelItem => item.DataPartida)</h6>
-            <h6>@Html.DisplayNameFor(model => model.TotalVagas): @Html.DisplayFor(modelItem => item.HorarioPartida)</h6>
+            <h6>@Html.DisplayNameFor(model => model.DataPartida): @Html.DisplayFor(modelItem => item.DataPartida)</h6>
+            <h6>@Html.DisplayNameFor(model => model.TotalVagas): @Html.DisplayFor(modelItem => item.TotalVagas)</h6>
             <button type="button" class="btn btn-dark" data-toggle="tooltip" data-placement="right" onclick="alert('Aceitar a viagem?')">Aceitar</button>
             <p>
                 <a asp-action="Details">Mais detalhes</a>
