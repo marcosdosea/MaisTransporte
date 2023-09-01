@@ -297,9 +297,6 @@ public partial class MaisTransporteContext : DbContext
             entity.Property(e => e.LocalOrigem)
                 .HasMaxLength(50)
                 .HasColumnName("localOrigem");
-            entity.Property(e => e.Status)
-                .HasColumnType("enum('Disponível','Confirmada','Concluída','Cancelada')")
-                .HasColumnName("status");
             entity.Property(e => e.Titulo)
                 .HasMaxLength(50)
                 .HasColumnName("titulo");
@@ -307,6 +304,10 @@ public partial class MaisTransporteContext : DbContext
                 .HasColumnType("int(11)")
                 .HasColumnName("totalVagas");
             entity.Property(e => e.ValorPassagem).HasColumnName("valorPassagem");
+            entity.Property(e => e.Visibilidade)
+                .HasDefaultValueSql("'Pública'")
+                .HasColumnType("enum('Pública','Privada')")
+                .HasColumnName("visibilidade");
 
             entity.HasOne(d => d.IdPassageiroNavigation).WithMany(p => p.Sugestaoviagems)
                 .HasForeignKey(d => d.IdPassageiro)
