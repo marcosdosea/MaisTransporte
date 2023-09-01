@@ -23,7 +23,7 @@ public partial class Sugestaoviagem
 
     public string Descricao { get; set; } = null!;
 
-    public string Status { get; set; } = null!;
+    public string Visibilidade { get; set; } = null!;
 
     public int IdPassageiro { get; set; }
 
