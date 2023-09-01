@@ -37,11 +37,13 @@ namespace MaisTransporteWeb.Models
 
         [Display(Name = "Data e Horário de partida")]
         [DataType(DataType.DateTime, ErrorMessage ="Data válida requerida"))]
+        [Required(ErrorMessage = "A data e o horário de partida são obrigatórios.")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataPartida { get; set; }
 
         [Display(Name = "Data e Horário de volta")]
         [DataType(DataType.DateTime, ErrorMessage ="Data válida requerida"))]
+        [Required(ErrorMessage = "A data e o horário de volta são obrigatórios.")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataChegada { get; set; }
 
