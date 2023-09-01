@@ -19,5 +19,5 @@ public partial class Veiculo
 
     public int IdMotoristaPassageiro { get; set; }
 
-    public virtual Motorista IdMotoristaPassageiroNavigation { get; set; } = null!;
+    public virtual Motoristum IdMotoristaPassageiroNavigation { get; set; } = null!;
 }

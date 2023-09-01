@@ -21,10 +21,6 @@ public partial class Sugestaoviagem
 
     public DateTime DataChegada { get; set; }
 
-    public TimeSpan HorarioPartida { get; set; }
-
-    public TimeSpan HorarioChegada { get; set; }
-
     public string Descricao { get; set; } = null!;
 
     public string Status { get; set; } = null!;

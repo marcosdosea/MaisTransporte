@@ -17,7 +17,7 @@ public partial class MaisTransporteContext : DbContext
 
     public virtual DbSet<Avaliacao> Avaliacaos { get; set; }
 
-    public virtual DbSet<Motorista> Motorista { get; set; }
+    public virtual DbSet<Motoristum> Motorista { get; set; }
 
     public virtual DbSet<Passageiro> Passageiros { get; set; }
 
@@ -31,9 +31,9 @@ public partial class MaisTransporteContext : DbContext
 
     public virtual DbSet<Viagem> Viagems { get; set; }
 
-    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        //=> optionsBuilder.UseMySQL("server=localhost;port=3306;user=root;password=123456;database=ModeloMaisTransportes");
+//        => optionsBuilder.UseMySQL("server=localhost;port=3306;user=root;password=123456;database=ModeloMaisTransporte");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -65,16 +65,16 @@ public partial class MaisTransporteContext : DbContext
 
             entity.HasOne(d => d.IdPassageiroNavigation).WithMany(p => p.Avaliacaos)
                 .HasForeignKey(d => d.IdPassageiro)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_Avaliacao_Passageiro1");
 
             entity.HasOne(d => d.IdViagemNavigation).WithMany(p => p.Avaliacaos)
                 .HasForeignKey(d => d.IdViagem)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_Avaliacao_Viagem1");
         });
 
-        modelBuilder.Entity<Motorista>(entity =>
+        modelBuilder.Entity<Motoristum>(entity =>
         {
             entity.HasKey(e => e.IdPassageiro).HasName("PRIMARY");
 
@@ -105,8 +105,8 @@ public partial class MaisTransporteContext : DbContext
                 .HasColumnName("status");
 
             entity.HasOne(d => d.IdPassageiroNavigation).WithOne(p => p.Motoristum)
-                .HasForeignKey<Motorista>(d => d.IdPassageiro)
-                .OnDelete(DeleteBehavior.Restrict)
+                .HasForeignKey<Motoristum>(d => d.IdPassageiro)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_Motorista_Passageiro1");
         });
 
@@ -218,12 +218,12 @@ public partial class MaisTransporteContext : DbContext
 
             entity.HasOne(d => d.IdPassageiroNavigation).WithMany(p => p.Reembolsos)
                 .HasForeignKey(d => d.IdPassageiro)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_Reembolso_Passageiro1");
 
             entity.HasOne(d => d.IdViagemNavigation).WithMany(p => p.Reembolsos)
                 .HasForeignKey(d => d.IdViagem)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_Reembolso_Viagem1");
         });
 
@@ -257,12 +257,12 @@ public partial class MaisTransporteContext : DbContext
 
             entity.HasOne(d => d.IdPassageiroNavigation).WithMany(p => p.Reservas)
                 .HasForeignKey(d => d.IdPassageiro)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_Reserva_Passageiro1");
 
             entity.HasOne(d => d.IdViagemNavigation).WithMany(p => p.Reservas)
                 .HasForeignKey(d => d.IdViagem)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_Reserva_Viagem1");
         });
 
@@ -288,12 +288,6 @@ public partial class MaisTransporteContext : DbContext
             entity.Property(e => e.Descricao)
                 .HasMaxLength(100)
                 .HasColumnName("descricao");
-            entity.Property(e => e.HorarioChegada)
-                .HasColumnType("time")
-                .HasColumnName("horarioChegada");
-            entity.Property(e => e.HorarioPartida)
-                .HasColumnType("time")
-                .HasColumnName("horarioPartida");
             entity.Property(e => e.IdPassageiro)
                 .HasColumnType("int(11)")
                 .HasColumnName("idPassageiro");
@@ -316,7 +310,7 @@ public partial class MaisTransporteContext : DbContext
 
             entity.HasOne(d => d.IdPassageiroNavigation).WithMany(p => p.Sugestaoviagems)
                 .HasForeignKey(d => d.IdPassageiro)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_SugestaoViagem_Passageiro1");
         });
 
@@ -356,7 +350,7 @@ public partial class MaisTransporteContext : DbContext
 
             entity.HasOne(d => d.IdMotoristaPassageiroNavigation).WithMany(p => p.Veiculos)
                 .HasForeignKey(d => d.IdMotoristaPassageiro)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_Veiculo_Motorista1");
         });
 
@@ -371,21 +365,15 @@ public partial class MaisTransporteContext : DbContext
             entity.Property(e => e.Id)
                 .HasColumnType("int(11)")
                 .HasColumnName("id");
-            entity.Property(e => e.DataIda)
-                .HasColumnType("time")
-                .HasColumnName("dataIda");
-            entity.Property(e => e.DataVolta)
-                .HasColumnType("time")
-                .HasColumnName("dataVolta");
+            entity.Property(e => e.DataChegada)
+                .HasColumnType("datetime")
+                .HasColumnName("dataChegada");
+            entity.Property(e => e.DataPartida)
+                .HasColumnType("datetime")
+                .HasColumnName("dataPartida");
             entity.Property(e => e.Descricao)
                 .HasMaxLength(100)
                 .HasColumnName("descricao");
-            entity.Property(e => e.HorarioIda)
-                .HasColumnType("time")
-                .HasColumnName("horarioIda");
-            entity.Property(e => e.HorarioVolta)
-                .HasColumnType("time")
-                .HasColumnName("horarioVolta");
             entity.Property(e => e.IdMotorista)
                 .HasColumnType("int(11)")
                 .HasColumnName("idMotorista");
@@ -395,6 +383,13 @@ public partial class MaisTransporteContext : DbContext
             entity.Property(e => e.LocalOrigem)
                 .HasMaxLength(50)
                 .HasColumnName("localOrigem");
+            entity.Property(e => e.Titulo)
+                .HasMaxLength(50)
+                .HasColumnName("titulo");
+            entity.Property(e => e.TotalVagas)
+                .HasColumnType("int(11)")
+                .HasColumnName("totalVagas");
+            entity.Property(e => e.ValorPassagem).HasColumnName("valorPassagem");
         });
 
         OnModelCreatingPartial(modelBuilder);
