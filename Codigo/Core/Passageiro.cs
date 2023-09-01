@@ -19,7 +19,7 @@ public partial class Passageiro
 
     public virtual ICollection<Avaliacao> Avaliacaos { get; set; } = new List<Avaliacao>();
 
-    public virtual Motorista? Motoristum { get; set; }
+    public virtual Motoristum? Motoristum { get; set; }
 
     public virtual ICollection<Reembolso> Reembolsos { get; set; } = new List<Reembolso>();
 

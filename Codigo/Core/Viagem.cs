@@ -7,17 +7,19 @@ public partial class Viagem
 {
     public int Id { get; set; }
 
-    public TimeSpan DataIda { get; set; }
-
-    public TimeSpan DataVolta { get; set; }
+    public string Titulo { get; set; } = null!;
 
     public string LocalOrigem { get; set; } = null!;
 
     public string LocalDestino { get; set; } = null!;
 
-    public TimeSpan HorarioIda { get; set; }
+    public float ValorPassagem { get; set; }
 
-    public TimeSpan HorarioVolta { get; set; }
+    public int TotalVagas { get; set; }
+
+    public DateTime DataPartida { get; set; }
+
+    public DateTime DataChegada { get; set; }
 
     public string Descricao { get; set; } = null!;
 
