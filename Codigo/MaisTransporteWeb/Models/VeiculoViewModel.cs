@@ -36,8 +36,8 @@ namespace MaisTransporteWeb.Models
         [StringLength(2, MinimumLength = 2, ErrorMessage = "Escolha um Estado.")]
         public string Estado { get; set; }
 
-        [Display(Name= "Código Motoria Passageiro")]
-        [Required(ErrorMessage = "O campo Motorista/Passageiro é obrigatório.")]
+        [Display(Name= "Motorista)]
+        [Required(ErrorMessage = "O campo Motorista é obrigatório.")]
         public int IdMotoristaPassageiro { get; set; }
 
     }
