@@ -4,75 +4,79 @@
     ViewData["Title"] = "Detalhes da Viagem";
 }
 
-<h1>Detalhes da Viagem</h1>
-
-<div>
-    <h4>Viagem</h4>
+<div class="text-center">
+    <h4>Detalhes da Viagem</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Titulo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Titulo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LocalOrigem)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LocalOrigem)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LocalDestino)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LocalDestino)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ValorPassagem)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ValorPassagem)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalVagas)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TotalVagas)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataPartida)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataPartida)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataChegada)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataChegada)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Descricao)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.IdMotorista)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.IdMotorista)
-        </dd>
-    </dl>
 </div>
-<div>
-    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }) |
-    <a asp-action="Index">Voltar</a>
+
+<div class="w3-row w3-center">
+    <div class="w3-border">
+        <dl class="w3-row">
+            <dt class="w3-right-align" style="width:45%">
+                @Html.DisplayNameFor(model => model.Titulo)
+            </dt>
+            <dd class="w3-left-align" style="width:55%">
+                @Html.DisplayFor(model => model.Titulo)
+            </dd>
+            <dt class="w3-right-align" style="width:45%">
+                @Html.DisplayNameFor(model => model.LocalOrigem)
+            </dt>
+            <dd class="w3-left-align" style="width:55%">
+                @Html.DisplayFor(model => model.LocalOrigem)
+            </dd>
+            <dt class="w3-right-align" style="width:45%">
+                @Html.DisplayNameFor(model => model.LocalDestino)
+            </dt>
+            <dd class="w3-left-align" style="width:55%">
+                @Html.DisplayFor(model => model.LocalDestino)
+            </dd>
+            <dt class="w3-right-align" style="width:45%">
+                @Html.DisplayNameFor(model => model.ValorPassagem)
+            </dt>
+            <dd class="w3-left-align" style="width:55%">
+                @Html.DisplayFor(model => model.ValorPassagem)
+            </dd>
+            <dt class="w3-right-align" style="width:45%">
+                @Html.DisplayNameFor(model => model.TotalVagas)
+            </dt>
+            <dd class="w3-left-align" style="width:55%">
+                @Html.DisplayFor(model => model.TotalVagas)
+            </dd>
+            <dt class="w3-right-align" style="width:45%">
+                @Html.DisplayNameFor(model => model.DataPartida)
+            </dt>
+            <dd class="w3-left-align" style="width:55%">
+                @Html.DisplayFor(model => model.DataPartida)
+            </dd>
+            <dt class="w3-right-align" style="width:45%">
+                @Html.DisplayNameFor(model => model.DataChegada)
+            </dt>
+            <dd class="w3-left-align" style="width:55%">
+                @Html.DisplayFor(model => model.DataChegada)
+            </dd>
+            <dt class="w3-right-align" style="width:45%">
+                @Html.DisplayNameFor(model => model.Descricao)
+            </dt>
+            <dd class="w3-left-align" style="width:55%">
+                @Html.DisplayFor(model => model.Descricao)
+            </dd>
+            <dt class="w3-right-align" style="width:45%">
+                @Html.DisplayNameFor(model => model.IdMotorista)
+            </dt>
+            <dd class="w3-left-align" style="width:55%">
+                @Html.DisplayFor(model => model.IdMotorista)
+            </dd>
+        </dl>
+
+        <div class="w3-row">
+            <div class="w3-col w3-container w3-right-align" style="width:45%">
+                <button type="button" class="btn btn-dark"><a asp-action="Index">Voltar</a></button>
+            </div>
+
+            <div class="w3-col w3-container w3-left-align" style="width:55%">
+                <button type="button" class="btn btn-dark" onclick="alert('Reservar vaga nessa viagem?')">Reservar vaga</button>
+            </div>
+        </div>
+    </div>
+
 </div>
