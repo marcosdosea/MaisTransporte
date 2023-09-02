@@ -4,73 +4,78 @@
     ViewData["Title"] = "Cadastrar Viagem";
 }
 
-<h1>Cadastrar Viagem</h1>
-
-<h4>Viagem</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Titulo" class="control-label"></label>
-                <input asp-for="Titulo" class="form-control" />
-                <span asp-validation-for="Titulo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LocalOrigem" class="control-label"></label>
-                <input asp-for="LocalOrigem" class="form-control" />
-                <span asp-validation-for="LocalOrigem" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LocalDestino" class="control-label"></label>
-                <input asp-for="LocalDestino" class="form-control" />
-                <span asp-validation-for="LocalDestino" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ValorPassagem" class="control-label"></label>
-                <input asp-for="ValorPassagem" class="form-control" />
-                <span asp-validation-for="ValorPassagem" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TotalVagas" class="control-label"></label>
-                <input asp-for="TotalVagas" class="form-control" />
-                <span asp-validation-for="TotalVagas" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DataPartida" class="control-label"></label>
-                <input asp-for="DataPartida" class="form-control" />
-                <span asp-validation-for="DataPartida" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DataChegada" class="control-label"></label>
-                <input asp-for="DataChegada" class="form-control" />
-                <span asp-validation-for="DataChegada" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Descricao" class="control-label"></label>
-                <input asp-for="Descricao" class="form-control" />
-                <span asp-validation-for="Descricao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdMotorista" class="control-label"></label>
-                <input asp-for="IdMotorista" class="form-control" />
-                <span asp-validation-for="IdMotorista" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+<div class="text-center">
+    <h4>Cadastrar Viagem</h4>
+    <hr />
 </div>
 
-<div>
-    <a asp-action="Index">Voltar</a>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Titulo" class="control-label"></label>
+                    <input asp-for="Titulo" class="form-control" />
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LocalOrigem" class="control-label"></label>
+                    <input asp-for="LocalOrigem" class="form-control" />
+                    <span asp-validation-for="LocalOrigem" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LocalDestino" class="control-label"></label>
+                    <input asp-for="LocalDestino" class="form-control" />
+                    <span asp-validation-for="LocalDestino" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="ValorPassagem" class="control-label"></label>
+                    <input asp-for="ValorPassagem" class="form-control" />
+                    <span asp-validation-for="ValorPassagem" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="TotalVagas" class="control-label"></label>
+                    <input asp-for="TotalVagas" class="form-control" />
+                    <span asp-validation-for="TotalVagas" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DataPartida" class="control-label"></label>
+                    <input asp-for="DataPartida" class="form-control" />
+                    <span asp-validation-for="DataPartida" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DataChegada" class="control-label"></label>
+                    <input asp-for="DataChegada" class="form-control" />
+                    <span asp-validation-for="DataChegada" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Descricao" class="control-label"></label>
+                    <input asp-for="Descricao" class="form-control" />
+                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdMotorista" class="control-label"></label>
+                    <input asp-for="IdMotorista" class="form-control" />
+                    <span asp-validation-for="IdMotorista" class="text-danger"></span>
+                </div>
+
+                <div class="w3-row">
+                    <div class="w3-col w3-container w3-right-align" style="width:45%">
+                        <button type="button" class="btn btn-dark"><a asp-action="Index">Voltar</a></button>
+                    </div>
+
+                    <div class="w3-col w3-container w3-left-align" style="width:55%">
+                        <div class="form-group">
+                            <input type="submit" value="Criar" class="btn btn-success" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
 </div>
 
 @section Scripts {
