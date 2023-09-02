@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace MaisTransporteWeb.Models
 {
@@ -27,7 +28,7 @@ namespace MaisTransporteWeb.Models
         
         [Display(Name = "Órgão Expedidor")]
         [Required(ErrorMessage = "Órgão expedidor é obrigatório.")]
-        [StringLength(3, MinimumLength = 5, ErrorMessage = "Órgão expedidor deve ter entre 3 e 5 caracteres.")]
+        [StringLength(3, ErrorMessage = "Órgão expedidor deve ter no mínimo 3 caracteres.")]
         public string Expedidor { get; set; }
 
         [Display(Name = "Estado")]
@@ -35,6 +36,9 @@ namespace MaisTransporteWeb.Models
         [StringLength(2, MinimumLength = 2, ErrorMessage = "Escolha um Estado.")]
         public string Estado { get; set; }
 
+        [Display(Name= "Código Motoria Passageiro")]
+        [Required(ErrorMessage = "O campo Motorista/Passageiro é obrigatório.")]
+        public int IdMotoristaPassageiro { get; set; }
 
     }
 }
