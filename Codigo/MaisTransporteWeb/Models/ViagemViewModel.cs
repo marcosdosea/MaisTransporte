@@ -28,26 +28,22 @@ namespace MaisTransporteWeb.Models
         [Required]
         public int TotalVagas { get; set; }
 
-        [Display(Name = "Data de partida")]
+        [DataType(DataType.DateTime)]
+        [Display(Name = "Data e Horário de partida")]
         [Required]
         public DateTime DataPartida { get; set; }
-        [DataType(DataType.Date)]
-
-        [Display(Name = "Data de volta")]
+        
+        [DataType(DataType.DateTime)]
+        [Display(Name = "Data e Horário de volta")]
         [Required]
         public DateTime DataChegada { get; set; }
-        [DataType(DataType.Date)]
-
-        [Display(Name = "Horário 1")]
-        [Required]
-        public TimeSpan HorarioPartida { get; set; }
-
-        [Display(Name = "Horário 2")]
-        [Required]
-        public TimeSpan HorarioChegada { get; set; }
 
         [Display(Name = "Descrição")]
         [Required]
         public string Descricao { get; set; } = null!;
+
+        [Display(Name = "Código do Motorista")]
+        [Required]
+        public int IdMotorista { get; set; }
     }
 }
