@@ -12,7 +12,7 @@ namespace MaisTransporteWeb.Models
         [Display(Name = "Código Renavam")]
         [Required(ErrorMessage = "Código renavam é obrigatório.")]
         [StringLength(11, MinimumLength = 11, ErrorMessage = "O código renavam deve ter 11 caracteres.")]
-        public string Renavan { get; set; } = null!;
+        public string Renavam { get; set; } = null!;
 
         [Display(Name = "Placa")]
         [Required(ErrorMessage = "Número da placa é obrigatório.")]
