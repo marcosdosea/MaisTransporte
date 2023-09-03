@@ -32,9 +32,9 @@ namespace Service
         }
 
         /// <summary>
-		/// Atualizar dados de um veículo da base de dados
-		/// </summary>
-		/// <param name="veiculo">novos dados do veículo</param>
+        /// Atualizar dados de um veículo da base de dados
+        /// </summary>
+        /// <param name="veiculo">novos dados do veículo</param>
         public void Edit(Veiculo veiculo)
         {
             _context.Update(veiculo);
