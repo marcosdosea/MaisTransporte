@@ -16,10 +16,10 @@ namespace MaisTransporteWeb.Models
         [Required]
         public string Nome { get; set; } = null!;
 
+        [DataType(DataType.Date)]
         [Display(Name = "Data de Nascimento")]
         [Required]
         public DateTime DataNascimento { get; set; }
-        [DataType(DataType.Date)]
 
         [Display(Name = "Cpf")]
         [Required]

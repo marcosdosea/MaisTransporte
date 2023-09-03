@@ -21,7 +21,7 @@ namespace BibliotecaWeb
             //injeção dependência Services
             builder.Services.AddTransient<IViagemService, ViagemService>();
             builder.Services.AddTransient<ISugerirViagemService, SugerirViagemService>();
-            //builder.Services.AddTransient<IUsuarioService, UsuarioService>();
+            builder.Services.AddTransient<IUsuarioService, UsuarioService>();
             //builder.Services.AddTransient<IVeiculoService, VeiculoService>();
 
             // injeção dependência mappers
