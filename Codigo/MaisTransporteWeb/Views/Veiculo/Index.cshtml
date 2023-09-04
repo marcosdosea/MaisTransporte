@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<MaisTransporteWeb.Models.VeiculoViewModel>
 
 @{
-    ViewData["Listagem de Veículos"] = "Index";
+    ViewData["Title"] = "Listagem de Veículos";
 }
 
-<h1>Index</h1>
+<h1>Listagem de Veículo</h1>
 
 <p>
     <a asp-action="Create">Novo Veículo</a>
@@ -63,7 +63,6 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
                 @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
             </td>
         </tr>
 }
