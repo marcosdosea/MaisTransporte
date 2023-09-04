@@ -1,0 +1,63 @@
+﻿@model MaisTransporteWeb.Models.VeiculoViewModel
+
+@{
+    ViewData["Title"] = "Editar Veículo";
+}
+
+<h1>Editar Veículo</h1>
+
+<h4>Veículo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Renavam" class="control-label"></label>
+                <input asp-for="Renavam" class="form-control" />
+                <span asp-validation-for="Renavam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Placa" class="control-label"></label>
+                <input asp-for="Placa" class="form-control" />
+                <span asp-validation-for="Placa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataEmissao" class="control-label"></label>
+                <input asp-for="DataEmissao" class="form-control" />
+                <span asp-validation-for="DataEmissao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expedidor" class="control-label"></label>
+                <input asp-for="Expedidor" class="form-control" />
+                <span asp-validation-for="Expedidor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado" class="control-label"></label>
+                <input asp-for="Estado" class="form-control" />
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdMotoristaPassageiro" class="control-label"></label>
+                <input asp-for="IdMotoristaPassageiro" class="form-control" />
+                <span asp-validation-for="IdMotoristaPassageiro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
