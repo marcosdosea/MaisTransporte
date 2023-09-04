@@ -1,12 +1,12 @@
 ﻿@model MaisTransporteWeb.Models.VeiculoViewModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Adicionar Veículo";
 }
 
-<h1>Create</h1>
+<h1>Adicionar Veículo</h1>
 
-<h4>VeiculoViewModel</h4>
+<h4>Veiculo</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -48,14 +48,14 @@
                 <span asp-validation-for="IdMotoristaPassageiro" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Adicionar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {
