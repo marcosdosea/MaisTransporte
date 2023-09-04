@@ -4,8 +4,7 @@ namespace MaisTransporteWeb.Models
 {
     public class ViagemViewModel
     {
-        [Display(Name = "Código")]
-        [Required(ErrorMessage = "Código da viagem é obrigatório.")]
+        [Key]
         public int Id { get; set; }
 
         [Display(Name = "Título")]
