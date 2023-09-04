@@ -8,7 +8,7 @@ namespace MaisTransporteWeb.Mappers
     {
         public MotoristaProfile()
         {
-            CreateMap<MotoristaViewModel, Passageiro>().ReverseMap();
+            CreateMap<MotoristaViewModel, Motoristum>().ReverseMap();
         }
     }
 }
