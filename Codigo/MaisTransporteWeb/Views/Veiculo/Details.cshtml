@@ -1,13 +1,13 @@
 ﻿@model MaisTransporteWeb.Models.VeiculoViewModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhe do Veículo";
 }
 
-<h1>Details</h1>
+<h1>Detalhe do Veículo</h1>
 
 <div>
-    <h4>VeiculoViewModel</h4>
+    <h4>Veículo</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -55,6 +55,6 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    <a asp-action="Index">Back to List</a>
+    @Html.ActionLink("Edit", "Editar", new { id = Model.Id }) |
+    <a asp-action="Index">Voltar</a>
 </div>
