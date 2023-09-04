@@ -4,14 +4,9 @@ namespace MaisTransporteWeb.Models
 {
     public class SugerirViagemViewModel
     {
-        [Display(Name = "Código")]
-        [Required(ErrorMessage = "Código da viagem é obrigatório.")]
+        [Key]
         public int Id { get; set; }
-
-        [Display(Name = "Código do Passageiro")]
-        [Required(ErrorMessage = "Código do passageiro é obrigatório.")]
-        public int IdPassageiro { get; set; }
-
+        
         [Display(Name = "Título")]
         [Required(ErrorMessage = "Título da viagem é obrigatório.")]
         [StringLength(50, MinimumLength = 5, ErrorMessage = "Título da viagem deve ter entre 5 e 50 caracteres")]
@@ -55,6 +50,10 @@ namespace MaisTransporteWeb.Models
         [Display(Name = "Visibilidade")]
         [Required(ErrorMessage = "Visibilidade da viagem é obrigatória.")]
         public string Visibilidade { get; set; } = null!;
+        
+        [Display(Name = "Código do Passageiro")]
+        [Required(ErrorMessage = "Código do passageiro é obrigatório.")]
+        public int IdPassageiro { get; set; }
     }
 }
 
