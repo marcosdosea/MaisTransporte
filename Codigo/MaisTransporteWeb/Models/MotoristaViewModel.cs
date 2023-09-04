@@ -6,7 +6,7 @@ namespace MaisTransporteWeb.Models
     {
         [Display(Name = "Nº do Documento")]
         [Required(ErrorMessage = "Número do documento é obrigatório.")]
-        [StringLength(15, MinimumLength = 5, ErrorMessage = "Número do documento deve ter entre 5 e 15 caracteres.")]
+        [StringLength(15, MinimumLength = 5, ErrorMessage = "Número do documento tem 15 caracteres.")]
         public string NumeroDocumento { get; set; } = null!;
 
         [DataType(DataType.Date)]
@@ -17,12 +17,12 @@ namespace MaisTransporteWeb.Models
       
         [Display(Name = "Órgão Expeditor")]
         [Required(ErrorMessage = "O nome do órgão expeditor é obrigatório.")]
-        [StringLength(5, MinimumLength = 2, ErrorMessage = "Órgão Expeditor deve ter entre 2 e 50 caracteres.")]
+        [StringLength(5, MinimumLength = 3, ErrorMessage = "Órgão Expeditor deve ter entre 3 e 5 caracteres.")]
         public string OrgaoExpeditor { get; set; } = null!;
 
         [Display(Name = "Estado")]
         [Required(ErrorMessage = "O nome do Estado é obrigatório.")]
-        [StringLength(2, MinimumLength = 1, ErrorMessage = "Estado deve ter entre 3 e 50 caracteres.")]
+        [StringLength(2, ErrorMessage = "Estado deve ter 2 caracteres.")]
         public string Estado { get; set; } = null!;
     }
 }
