@@ -3,7 +3,7 @@ using Core.Service;
 using Service;
 using Microsoft.EntityFrameworkCore;
 
-namespace BibliotecaWeb
+namespace MaisTransporteWeb
 {
     public class Program
     {
@@ -22,7 +22,7 @@ namespace BibliotecaWeb
             builder.Services.AddTransient<IViagemService, ViagemService>();
             builder.Services.AddTransient<ISugerirViagemService, SugerirViagemService>();
             builder.Services.AddTransient<IUsuarioService, UsuarioService>();
-            //builder.Services.AddTransient<IVeiculoService, VeiculoService>();
+            builder.Services.AddTransient<IVeiculoService, VeiculoService>();
 
             // injeção dependência mappers
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
