@@ -6,19 +6,15 @@
 
 <div class="w3-row w3-center">
     <h4>Criar Sugestão de Viagem</h4>
-    <hr />
+    <hr/>
 </div>
+
 <div class="container">
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
             <form asp-action="Create">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="IdPassageiro" class="control-label"></label>
-                    <input asp-for="IdPassageiro" class="form-control" />
-                    <span asp-validation-for="IdPassageiro" class="text-danger"></span>
-                </div>
                 <div class="form-group">
                     <label asp-for="Titulo" class="control-label"></label>
                     <input asp-for="Titulo" class="form-control" />
@@ -63,6 +59,11 @@
                     <label asp-for="Visibilidade" class="control-label"></label>
                     <input asp-for="Visibilidade" class="form-control" />
                     <span asp-validation-for="Visibilidade" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdPassageiro" class="control-label"></label>
+                    <input asp-for="IdPassageiro" class="form-control" />
+                    <span asp-validation-for="IdPassageiro" class="text-danger"></span>
                 </div>
 
                 <div class="w3-row">
