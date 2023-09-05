@@ -47,6 +47,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Cpf)
             </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Cpf })
+                @Html.ActionLink("Details", "Details", new { id=item.Cpf })
+                @Html.ActionLink("Delete", "Delete", new { id=item.Cpf })
+            </td>
         </tr>
 }
     </tbody>
