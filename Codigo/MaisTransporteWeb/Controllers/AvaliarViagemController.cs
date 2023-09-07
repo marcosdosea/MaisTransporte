@@ -26,14 +26,6 @@ namespace MaisTransporteWeb.Controllers
             return View(listaAvaliarViagemViewModel);
         }
 
-        // GET: AvaliarViagemController/Details/5
-        public ActionResult Details(int id)
-        {
-            var avaliarViagem = avaliacaoViagemService.Get(id);
-            var avaliarViagemViewModel = mapper.Map<AvaliarViagemViewModel>(avaliarViagem);
-            return View(avaliarViagemViewModel);
-        }
-
         // GET: AvaliarViagemController/Create
         public ActionResult Create()
         {
