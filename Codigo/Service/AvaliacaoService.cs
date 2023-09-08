@@ -11,7 +11,7 @@ namespace Service
     /// <summary>
     /// Manter avaliação viagens no banco de dados
     /// </summary>
-    /// 
+    
     public class AvaliarViagemService : IAvaliacaoViagemService
     {
         private readonly MaisTransporteContext _context;
@@ -24,7 +24,7 @@ namespace Service
         /// <summary>
         /// Insere uma nova avaliação na base de dados
         /// </summary>
-        /// <param name="avaliacaoViagem">dados da avaliação</param>
+        /// <param name="avaliacao">dados da avaliação</param>
         /// <returns></returns>
         public int Create(Avaliacao avaliacao)
         {
@@ -33,20 +33,14 @@ namespace Service
             return avaliacao.Id;
         }
 
-        /// <summary>
-        /// Obtém todas as avaliações das viagens
-        /// </summary>
-        /// <returns></returns>
         public Avaliacao Get(int id)
         {
             return _context.Avaliacaos.Find(id);
         }
-
         
         /// /// <summary>
         /// Obtém todas avaliações das viagens
         /// </summary>
-        /// <param name="avaliaViagem">avaliar viagem</param>
         /// <returns></returns>
         public IEnumerable<Avaliacao> GetAll()
         {
