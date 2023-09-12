@@ -21,11 +21,11 @@ namespace Service.Tests
 
             _context = new MaisTransporteContext(options);
             // _context.Database.EnsureDeleted();
-            // _context.Database.EnsureCreated();
+            _context.Database.EnsureCreated();
             var sugestoes = new List<Sugestaoviagem>
                 {
                     new Sugestaoviagem { Id = 1, Titulo = "Fest Verão", LocalOrigem = "Itabaiana",
-                               LocalDestino = "Aracaju", ValorPassagem = 30.00, TotalVagas = 15, DataPartida = DateTime.Parse("2023-08-01"),
+                               LocalDestino = "Aracaju", ValorPassagem = 30, TotalVagas = 15, DataPartida = DateTime.Parse("2023-08-01"),
                                DataChegada = DateTime.Parse("2023-08-02"), Descricao = "Viagem com segurança, conforto e com preço baixo.",
                                Visibilidade = "Pública", IdPassageiro = 1}
                 };
@@ -46,7 +46,7 @@ namespace Service.Tests
                 Titulo = "Festa dos Caretas",
                 LocalOrigem = "Itabaiana",
                 LocalDestino = "Ribeirópolis",
-                ValorPassagem = 15.00,
+                ValorPassagem = 15,
                 TotalVagas = 25,
                 DataPartida = DateTime.Parse("2023-04-10"),
                 DataChegada = DateTime.Parse("2023-04-10"),
@@ -60,7 +60,7 @@ namespace Service.Tests
             Assert.AreEqual("Festa dos Caretas", sugestao.Titulo);
             Assert.AreEqual("Itabaiana", sugestao.LocalOrigem);
             Assert.AreEqual("Ribeirópolis", sugestao.LocalDestino);
-            Assert.AreEqual(15.00, sugestao.ValorPassagem);
+            Assert.AreEqual(15, sugestao.ValorPassagem);
             Assert.AreEqual(25, sugestao.TotalVagas);
             Assert.AreEqual(DateTime.Parse("2023-04-10"), sugestao.DataPartida);
             Assert.AreEqual(DateTime.Parse("2023-04-10"), sugestao.DataChegada);
@@ -77,7 +77,7 @@ namespace Service.Tests
             Assert.AreEqual("Fest Verão", sugestao.Titulo);
             Assert.AreEqual("Itabaiana", sugestao.LocalOrigem);
             Assert.AreEqual("Aracaju", sugestao.LocalDestino);
-            Assert.AreEqual(30.00, sugestao.ValorPassagem);
+            Assert.AreEqual(30, sugestao.ValorPassagem);
             Assert.AreEqual(15, sugestao.TotalVagas);
             Assert.AreEqual(DateTime.Parse("2023-08-01"), sugestao.DataPartida);
             Assert.AreEqual(DateTime.Parse("2023-08-02"), sugestao.DataChegada);
@@ -96,7 +96,7 @@ namespace Service.Tests
             Assert.IsNotNull(listaSugestao);
             Assert.AreEqual(3, listaSugestao.Count());
             Assert.AreEqual(1, listaSugestao.First().Id);
-            Assert.AreEqual("Fest Verão", listaSugestao.First().Titulo);
+            Assert.AreEqual("Aracaju", listaSugestao.First().LocalDestino);
         }
 
         [TestMethod()]
