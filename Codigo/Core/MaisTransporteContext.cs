@@ -336,9 +336,9 @@ public partial class MaisTransporteContext : DbContext
             entity.Property(e => e.Estado)
                 .HasMaxLength(2)
                 .HasColumnName("estado");
-            entity.Property(e => e.Expeditor)
+            entity.Property(e => e.Expedidor)
                 .HasMaxLength(5)
-                .HasColumnName("expeditor");
+                .HasColumnName("expedidor");
             entity.Property(e => e.IdMotoristaPassageiro)
                 .HasColumnType("int(11)")
                 .HasColumnName("idMotoristaPassageiro");

@@ -13,7 +13,7 @@ public partial class Veiculo
 
     public DateTime DataEmissao { get; set; }
 
-    public string Expeditor { get; set; } = null!;
+    public string Expedidor { get; set; } = null!;
 
     public string Estado { get; set; } = null!;
 
