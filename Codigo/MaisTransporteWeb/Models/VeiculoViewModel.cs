@@ -23,7 +23,7 @@ namespace MaisTransporteWeb.Models
         [Display(Name = "Data de Emissão")]
         [DataType(DataType.DateTime, ErrorMessage = "Data válida requerida")]
         [Required(ErrorMessage = "Data de emissão é obrigatório.")]
-        [DisplayFormat(DataFormatString = "{dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataEmissao { get; set; }
 
         [Display(Name = "Órgão Expedidor")]

@@ -30,7 +30,7 @@ namespace MaisTransporteWeb.Controllers
         public ActionResult Details(int id)
         {
             var veiculo = veiculoService.Get(id);
-            var veiculoViewModel = mapper.Map<ViagemViewModel>(veiculo);
+            var veiculoViewModel = mapper.Map<VeiculoViewModel>(veiculo);
             return View(veiculoViewModel);
         }
 
