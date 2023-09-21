@@ -72,6 +72,28 @@ namespace ServiceTests
                 Assert.AreEqual(1, veiculo.IdMotoristaPassageiro);
 
         }
+        [TestMethod()]
+        public void EditTest()
+        {
+            var veiculo = _veiculoService.Get(1);
+            veiculo.Renavam = "92988383838";
+            veiculo.Placa = "UHD-9099";
+            veiculo.DataEmissao = DateTime.Parse("2023-04-10");
+            veiculo.Expedidor = "SSP";
+            veiculo.Estado = "SE";
+            veiculo.IdMotoristaPassageiro = 1;
+            _veiculoService.Edit(veiculo);
+            //Assert
+            veiculo = _veiculoService.Get(1);
+            Assert.IsNotNull(veiculo);
+            Assert.AreEqual(1, veiculo.Id);
+            Assert.AreEqual("Renavam", veiculo.Renavam);
+            Assert.AreEqual("Placa", veiculo.Placa);
+            Assert.AreEqual(DateTime.Parse("2022-08-02"), veiculo.DataEmissao);
+            Assert.AreEqual("Órgão Expedidor", veiculo.Expedidor);
+            Assert.AreEqual("Estado", veiculo.Estado);
+            Assert.AreEqual(1, veiculo.IdMotoristaPassageiro);
+        }
         public void GetTest()
         {
             var veiculo = _veiculoService.Get(1);

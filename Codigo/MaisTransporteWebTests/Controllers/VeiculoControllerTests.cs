@@ -115,6 +115,37 @@ namespace MaisTransporteWebTests.Controllers
             Assert.IsNull(redirectToActionResult.ControllerName);
             Assert.AreEqual("Index", redirectToActionResult.ActionName);
         }
+        [TestMethod()]
+        public void EditTest_Get()
+        {
+            // Act
+            var result = controller.Edit(1);
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
+            ViewResult viewResult = (ViewResult)result;
+            Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(VeiculoViewModel));
+            VeiculoViewModel veiculoViewModel = (VeiculoViewModel)viewResult.ViewData.Model;
+            Assert.AreEqual("8855233251", veiculoViewModel.Renavam);
+            Assert.AreEqual("OHD-9088", veiculoViewModel.Placa);
+            Assert.AreEqual(DateTime.Parse("2022-08-02"), veiculoViewModel.DataEmissao);
+            Assert.AreEqual("SSP", veiculoViewModel.Expedidor);
+            Assert.AreEqual("SE", veiculoViewModel.Estado);
+            Assert.AreEqual(1, veiculoViewModel.IdMotoristaPassageiro);
+        }
+
+        [TestMethod()]
+        public void EditTest_Post()
+        {
+            // Act
+            var result = controller.Edit(GetTargetVeiculoViewModel().Id, GetTargetVeiculoViewModel());
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(RedirectToActionResult));
+            RedirectToActionResult redirectToActionResult = (RedirectToActionResult)result;
+            Assert.IsNull(redirectToActionResult.ControllerName);
+            Assert.AreEqual("Index", redirectToActionResult.ActionName);
+        }
 
         private VeiculoViewModel GetNewVeiculo()
         {
