@@ -21,23 +21,23 @@ namespace MaisTransporteWeb.Models
 
 
         [Display(Name = "Data de Emissão")]
-        [DataType(DataType.DateTime, ErrorMessage = "Data válida requerida")]
+        [DataType(DataType.Date, ErrorMessage = "Data válida requerida")]
         [Required(ErrorMessage = "Data de emissão é obrigatório.")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataEmissao { get; set; }
 
         [Display(Name = "Órgão Expedidor")]
         [Required(ErrorMessage = "Órgão expedidor é obrigatório.")]
-        [StringLength(3, ErrorMessage = "Órgão expedidor deve ter no mínimo 3 caracteres.")]
+        [StringLength(3, MinimumLength = 3, ErrorMessage = "Órgão expedidor deve ter no mínimo 3 caracteres.")]
         public string Expedidor { get; set; } = null!;
 
         [Display(Name = "Estado")]
         [Required(ErrorMessage = "O campo Estado é obrigatório.")]
-        [StringLength(2, MinimumLength = 2, ErrorMessage = "Escolha um Estado.")]
+        [StringLength(2, MinimumLength = 2, ErrorMessage = "Escolha deve ter no mínimo 2 caracteres.")]
         public string Estado { get; set; } = null!;
 
-        [Display(Name= "Motorista")]
-        [Required(ErrorMessage = "O campo Motorista é obrigatório.")]
+        [Display(Name= "Id Motorista")]
+        [Required(ErrorMessage = "O campo Id do motorista é obrigatório.")]
         public int IdMotoristaPassageiro { get; set; }
 
     }
