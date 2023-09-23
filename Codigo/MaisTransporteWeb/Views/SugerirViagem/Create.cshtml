@@ -1,18 +1,20 @@
 ﻿@model MaisTransporteWeb.Models.SugerirViagemViewModel
 
 @{
-    ViewData["Title"] = "Criar Sugestão de Viagem";
+    ViewData["Title"] = "Crie uma Sugestão de Viagem";
 }
 
-<div class="w3-row w3-center">
-    <h4>Criar Sugestão de Viagem</h4>
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+<div class="text-center">
+    <h4>Crie uma Sugestão de Viagem</h4>
     <hr/>
 </div>
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
             <form asp-action="Create">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
@@ -30,15 +32,17 @@
                     <input asp-for="LocalDestino" class="form-control" />
                     <span asp-validation-for="LocalDestino" class="text-danger"></span>
                 </div>
-                <div class="form-group col-md-6">
-                    <label asp-for="ValorPassagem" class="control-label"></label>
-                    <input asp-for="ValorPassagem" class="form-control" />
-                    <span asp-validation-for="ValorPassagem" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-6">
-                    <label asp-for="TotalVagas" class="control-label"></label>
-                    <input asp-for="TotalVagas" class="form-control" />
-                    <span asp-validation-for="TotalVagas" class="text-danger"></span>
+                <div class="row justify-content-around">
+                    <div class="form-group col-6">
+                        <label asp-for="ValorPassagem" class="control-label"></label>
+                        <input asp-for="ValorPassagem" class="form-control" />
+                        <span asp-validation-for="ValorPassagem" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-6">
+                        <label asp-for="TotalVagas" class="control-label"></label>
+                        <input asp-for="TotalVagas" class="form-control" />
+                        <span asp-validation-for="TotalVagas" class="text-danger"></span>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label asp-for="DataPartida" class="control-label"></label>
@@ -52,7 +56,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Descricao" class="control-label"></label>
-                    <input asp-for="Descricao" class="form-control" />
+                    <textarea asp-for="Descricao" class="form-control" cols="40" rows="3"></textarea>
                     <span asp-validation-for="Descricao" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -66,20 +70,17 @@
                     <span asp-validation-for="IdPassageiro" class="text-danger"></span>
                 </div>
 
-                <div class="w3-row">
-                    <div class="w3-col w3-container w3-right-align" style="width:45%">
-                        <button type="button" class="btn btn-dark"><a asp-action="Index">Voltar</a></button>
+                <div class="row justify-content-around" id="buttonMargin">
+                    <div class="col-6 w3-right-align">
+                        <a asp-action="Index" class="btn btn-danger">CANCELAR</a>
                     </div>
-
-                    <div class="w3-col w3-container w3-left-align" style="width:55%">
-                        <div class="form-group">
-                            <input type="submit" value="Criar" class="btn btn-success" />
-                        </div>
+                    <div class="form-group col-6">
+                        <input type="submit" value="CADASTRAR" class="btn btn-success"/>
                     </div>
                 </div>
             </form>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-md-3"></div>
     </div>
 </div>
 

@@ -1,14 +1,15 @@
 ﻿@model IEnumerable<MaisTransporteWeb.Models.SugerirViagemViewModel>
 
 @{
-    ViewData["Title"] = "Lista de Sugestões de Viagens";
+    ViewData["Title"] = "Viagens Sugeridas";
 }
 
-<h1>Lista de Sugestões de Viagens</h1>
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
-<p>
-    <a asp-action="Create">Nova Sugestão de Viagem</a>
-</p>
+<div class="text-center">
+    <h3>Viagens Sugeridas</h3>
+    <hr/>
+</div>
 
 @foreach (var item in Model)
 {
@@ -20,9 +21,18 @@
             <h5>@Html.DisplayNameFor(model => model.Titulo): @Html.DisplayFor(modelItem => item.Titulo)</h5>
             <h6>@Html.DisplayNameFor(model => model.DataPartida): @Html.DisplayFor(modelItem => item.DataPartida)</h6>
             <h6>@Html.DisplayNameFor(model => model.TotalVagas): @Html.DisplayFor(modelItem => item.TotalVagas)</h6>
-            <button type="button" class="btn btn-dark" data-toggle="tooltip" data-placement="right" onclick="alert('Aceitar a viagem?')">Aceitar</button>
-            @Html.ActionLink("Mais Detalhes", "Details", new { id=item.Id})
+            <button type="button" class="btn btn-dark" onclick="alert('Aceitar a viagem?')">Aceitar</button>
+            <p>
+                @Html.ActionLink("Mais detalhes", "Details", new { id=item.Id})
+            </p>
         </div>
     </div>
     <hr>
 }
+<div class="row" id="buttonMargin">
+    <div class="col-3"></div>
+    <div class="col-6 btn btn-success">
+        <a asp-action="Create" class="btn btn-success">NOVA SUGESTÃO DE VIAGEM</a>
+    </div>
+    <div class="col-3"></div>
+</div>
