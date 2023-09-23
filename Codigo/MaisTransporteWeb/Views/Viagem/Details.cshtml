@@ -4,6 +4,8 @@
     ViewData["Title"] = "Detalhes da Viagem";
 }
 
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
 <div class="text-center">
     <h4>Detalhes da Viagem</h4>
     <hr />
@@ -11,72 +13,70 @@
 
 <div class="w3-row w3-center">
     <div class="w3-border">
-        <dl class="w3-row">
-            <dt class="w3-right-align" style="width:45%">
+        <br />
+        <dl class="row">
+            <dt class="w3-right-align" style="width:50%">
                 @Html.DisplayNameFor(model => model.Titulo)
             </dt>
-            <dd class="w3-left-align" style="width:55%">
+            <dd class="w3-left-align" style="width:50%">
                 @Html.DisplayFor(model => model.Titulo)
             </dd>
-            <dt class="w3-right-align" style="width:45%">
+            <dt class="w3-right-align" style="width:50%">
                 @Html.DisplayNameFor(model => model.LocalOrigem)
             </dt>
-            <dd class="w3-left-align" style="width:55%">
+            <dd class="w3-left-align" style="width:50%">
                 @Html.DisplayFor(model => model.LocalOrigem)
             </dd>
-            <dt class="w3-right-align" style="width:45%">
+            <dt class="w3-right-align" style="width:50%">
                 @Html.DisplayNameFor(model => model.LocalDestino)
             </dt>
-            <dd class="w3-left-align" style="width:55%">
+            <dd class="w3-left-align" style="width:50%">
                 @Html.DisplayFor(model => model.LocalDestino)
             </dd>
-            <dt class="w3-right-align" style="width:45%">
+            <dt class="w3-right-align" style="width:50%">
                 @Html.DisplayNameFor(model => model.ValorPassagem)
             </dt>
-            <dd class="w3-left-align" style="width:55%">
+            <dd class="w3-left-align" style="width:50%">
                 @Html.DisplayFor(model => model.ValorPassagem)
             </dd>
-            <dt class="w3-right-align" style="width:45%">
+            <dt class="w3-right-align" style="width:50%">
                 @Html.DisplayNameFor(model => model.TotalVagas)
             </dt>
-            <dd class="w3-left-align" style="width:55%">
+            <dd class="w3-left-align" style="width:50%">
                 @Html.DisplayFor(model => model.TotalVagas)
             </dd>
-            <dt class="w3-right-align" style="width:45%">
+            <dt class="w3-right-align" style="width:50%">
                 @Html.DisplayNameFor(model => model.DataPartida)
             </dt>
-            <dd class="w3-left-align" style="width:55%">
+            <dd class="w3-left-align" style="width:50%">
                 @Html.DisplayFor(model => model.DataPartida)
             </dd>
-            <dt class="w3-right-align" style="width:45%">
+            <dt class="w3-right-align" style="width:50%">
                 @Html.DisplayNameFor(model => model.DataChegada)
             </dt>
-            <dd class="w3-left-align" style="width:55%">
+            <dd class="w3-left-align" style="width:50%">
                 @Html.DisplayFor(model => model.DataChegada)
             </dd>
-            <dt class="w3-right-align" style="width:45%">
+            <dt class="w3-right-align" style="width:50%">
                 @Html.DisplayNameFor(model => model.Descricao)
             </dt>
-            <dd class="w3-left-align" style="width:55%">
+            <dd class="w3-left-align" style="width:50%">
                 @Html.DisplayFor(model => model.Descricao)
             </dd>
-            <dt class="w3-right-align" style="width:45%">
+            <dt class="w3-right-align" style="width:50%">
                 @Html.DisplayNameFor(model => model.IdMotorista)
             </dt>
-            <dd class="w3-left-align" style="width:55%">
+            <dd class="w3-left-align" style="width:50%">
                 @Html.DisplayFor(model => model.IdMotorista)
             </dd>
         </dl>
-
-        <div class="w3-row">
-            <div class="w3-col w3-container w3-right-align" style="width:45%">
-                <button type="button" class="btn btn-dark"><a asp-action="Index">Voltar</a></button>
-            </div>
-
-            <div class="w3-col w3-container w3-left-align" style="width:55%">
-                <button type="button" class="btn btn-dark" onclick="alert('Reservar vaga nessa viagem?')">Reservar vaga</button>
-            </div>
+    </div>
+    <div class="row justify-content-around" id="buttonMargin">
+        <div class="col-6 w3-right-align">
+            <a asp-action="Index" class="btn btn-danger">CANCELAR</a>
+        </div>
+        <div class="col-6 w3-left-align">
+            <button type="button" class="btn btn-success" onclick="alert('Reservar vaga nessa viagem?')">RESERVAR VAGA</button>
         </div>
     </div>
-
 </div>
