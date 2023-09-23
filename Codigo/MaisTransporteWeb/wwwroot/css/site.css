@@ -16,3 +16,14 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.form-control {
+    border: 2px #00B37E solid;
+    background: #232326;
+    color: #E1E1E6;
+}
+
+#buttonMargin {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

@@ -46,3 +46,9 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+
+
+*, body {
+    /*background: #323238;*/
+    color: #E1E1E6
+}
