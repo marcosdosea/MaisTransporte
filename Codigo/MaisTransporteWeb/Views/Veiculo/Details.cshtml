@@ -55,6 +55,7 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    <a asp-action="Index">Voltar</a>
+    
+    <button type="button" class="btn btn-warning" onclick="alert('Editar Veículo?')">@Html.ActionLink("Editar", "Edit", new { id=Model.Id})</button>
+    <button type="button" class="btn btn-info"><a style="text-decoration: none" asp-action="Index">Voltar</a></button>
 </div>

@@ -1,0 +1,10 @@
+﻿.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: white;
+    
+}
+.tabele tbody tr td button {
+    text-decoration: none;
+}
