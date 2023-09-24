@@ -7,11 +7,7 @@ using MaisTransporteWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace MaisTransporteWebTests.Controllers
 {
@@ -68,11 +64,11 @@ namespace MaisTransporteWebTests.Controllers
             Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(VeiculoViewModel));
             VeiculoViewModel veiculoViewModel = (VeiculoViewModel)viewResult.ViewData.Model;
 
-            Assert.AreEqual("Renavam", veiculoViewModel.Renavam);
-            Assert.AreEqual("Placa", veiculoViewModel.Placa);
-            Assert.AreEqual(DateTime.Parse("2022-08-02"), veiculoViewModel.DataEmissao);
-            Assert.AreEqual("Órgão Expedidor", veiculoViewModel.Expedidor);
-            Assert.AreEqual("Estado", veiculoViewModel.Estado);
+            Assert.AreEqual("123235212", veiculoViewModel.Renavam);
+            Assert.AreEqual("OHD-2929", veiculoViewModel.Placa);
+            Assert.AreEqual(DateTime.Parse("2023-04-10"), veiculoViewModel.DataEmissao);
+            Assert.AreEqual("SSP", veiculoViewModel.Expedidor);
+            Assert.AreEqual("SE", veiculoViewModel.Estado);
             Assert.AreEqual(1, veiculoViewModel.IdMotoristaPassageiro);
         }
 
@@ -126,9 +122,9 @@ namespace MaisTransporteWebTests.Controllers
             ViewResult viewResult = (ViewResult)result;
             Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(VeiculoViewModel));
             VeiculoViewModel veiculoViewModel = (VeiculoViewModel)viewResult.ViewData.Model;
-            Assert.AreEqual("8855233251", veiculoViewModel.Renavam);
-            Assert.AreEqual("OHD-9088", veiculoViewModel.Placa);
-            Assert.AreEqual(DateTime.Parse("2022-08-02"), veiculoViewModel.DataEmissao);
+            Assert.AreEqual("123235212", veiculoViewModel.Renavam);
+            Assert.AreEqual("OHD-2929", veiculoViewModel.Placa);
+            Assert.AreEqual(DateTime.Parse("2023-04-10"), veiculoViewModel.DataEmissao);
             Assert.AreEqual("SSP", veiculoViewModel.Expedidor);
             Assert.AreEqual("SE", veiculoViewModel.Estado);
             Assert.AreEqual(1, veiculoViewModel.IdMotoristaPassageiro);
@@ -178,7 +174,7 @@ namespace MaisTransporteWebTests.Controllers
         {
             return new VeiculoViewModel
             {
-                Id = 10,
+                Id = 2,
                 Renavam = "123235212",
                 Placa = "OHD-2929",
                 DataEmissao = DateTime.Parse("2023-04-10"),

@@ -26,7 +26,7 @@ namespace ServiceTests
             var sugestoes = new List<Veiculo>
                 {
                     new Veiculo {
-                        Id = 5,
+                        Id = 1,
                         Renavam = "123235212",
                         Placa = "OHD-2929",
                         DataEmissao = DateTime.Parse("2023-04-10"),
@@ -48,7 +48,7 @@ namespace ServiceTests
             //Act
             _veiculoService.Create(new Veiculo()
             {
-                Id = 9,
+                Id = 2,
                 Renavam = "123235212",
                 Placa = "OHD-2929",
                 DataEmissao = DateTime.Parse("2023-04-10"),
@@ -59,11 +59,11 @@ namespace ServiceTests
                 //Assert
                 Assert.AreEqual(2, _veiculoService.GetAll().Count());
                 var veiculo = _veiculoService.Get(2);
-                Assert.AreEqual("Renavam", veiculo.Renavam);
-                Assert.AreEqual("Placa", veiculo.Placa);
-                Assert.AreEqual(DateTime.Parse("2022-08-02"), veiculo.DataEmissao);
-                Assert.AreEqual("Órgão Expedidor", veiculo.Expedidor);
-                Assert.AreEqual("Estado", veiculo.Estado);
+                Assert.AreEqual("123235212", veiculo.Renavam);
+                Assert.AreEqual("OHD-2929", veiculo.Placa);
+                Assert.AreEqual(DateTime.Parse("2023-04-10"), veiculo.DataEmissao);
+                Assert.AreEqual("SSP", veiculo.Expedidor);
+                Assert.AreEqual("SE", veiculo.Estado);
                 Assert.AreEqual(1, veiculo.IdMotoristaPassageiro);
 
         }
@@ -82,11 +82,11 @@ namespace ServiceTests
             veiculo = _veiculoService.Get(1);
             Assert.IsNotNull(veiculo);
             Assert.AreEqual(1, veiculo.Id);
-            Assert.AreEqual("Renavam", veiculo.Renavam);
-            Assert.AreEqual("Placa", veiculo.Placa);
-            Assert.AreEqual(DateTime.Parse("2022-08-02"), veiculo.DataEmissao);
-            Assert.AreEqual("Órgão Expedidor", veiculo.Expedidor);
-            Assert.AreEqual("Estado", veiculo.Estado);
+            Assert.AreEqual("92988383838", veiculo.Renavam);
+            Assert.AreEqual("UHD-9099", veiculo.Placa);
+            Assert.AreEqual(DateTime.Parse("2023-04-10"), veiculo.DataEmissao);
+            Assert.AreEqual("SSP", veiculo.Expedidor);
+            Assert.AreEqual("SE", veiculo.Estado);
             Assert.AreEqual(1, veiculo.IdMotoristaPassageiro);
         }
         public void GetTest()
