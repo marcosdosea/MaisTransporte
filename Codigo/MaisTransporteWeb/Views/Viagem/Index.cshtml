@@ -13,21 +13,25 @@
 
 @foreach (var item in Model)
 {
-    <div class="w3-row">
-        <div class="w3-col w3-green w3-container" style="width:45%">
-            <img src="images/img-01.1.png" alt="Nome da img">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 w3-row">
+            <div class="w3-col w3-container" id="campoImg">
+                <img id="imgViagem" src="https://s80-grus.freeconvert.com/task/65105735931ca80f74707a8a/FestVer%C3%A3o.png" alt="Viagem">
+            </div>
+            <div class="w3-col w3-container w3-right-align" id="dadosViagem">
+                <h5>@Html.DisplayNameFor(model => model.Titulo): @Html.DisplayFor(modelItem => item.Titulo)</h5>
+                <h6>@Html.DisplayNameFor(model => model.DataPartida): @Html.DisplayFor(modelItem => item.DataPartida)</h6>
+                <h6>@Html.DisplayNameFor(model => model.TotalVagas): @Html.DisplayFor(modelItem => item.TotalVagas)</h6>
+                <button type="button" class="btn btn-success" onclick="alert('Reservar vaga nessa viagem?')">Reservar vaga</button>
+                <p>
+                    @Html.ActionLink("Mais detalhes", "Details", new { id=item.Id})
+                </p>
+            </div>
         </div>
-        <div class="w3-col w3-dark-grey w3-container" style="width:55%">
-            <h5>@Html.DisplayNameFor(model => model.Titulo): @Html.DisplayFor(modelItem => item.Titulo)</h5>
-            <h6>@Html.DisplayNameFor(model => model.DataPartida): @Html.DisplayFor(modelItem => item.DataPartida)</h6>
-            <h6>@Html.DisplayNameFor(model => model.TotalVagas): @Html.DisplayFor(modelItem => item.TotalVagas)</h6>
-            <button type="button" class="btn btn-dark" onclick="alert('Reservar vaga nessa viagem?')">Reservar vaga</button>
-            <p>
-                @Html.ActionLink("Mais detalhes", "Details", new { id=item.Id})
-            </p>            
-        </div>
+        <div class="col-md-2"></div>
     </div>
-    <hr>
+    <br />
 }
 <div class="row" id="buttonMargin">
     <div class="col-3"></div>

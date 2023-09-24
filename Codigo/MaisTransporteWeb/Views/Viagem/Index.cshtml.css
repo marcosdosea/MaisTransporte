@@ -1,3 +1,23 @@
 ﻿#buttonMargin {
     margin-top: 60px;
 }
+
+#imgViagem {
+    width: 9em;
+    height: 9.5em;
+    margin-top: 1em;
+}
+
+#campoImg {
+    background-color: #202024;
+    width: 45%;
+    height: 100%;
+    border-radius: 5px 0px 0px 5px;
+    border-left: 8px #996DFF solid;
+}
+
+#dadosViagem {
+    background-color: #202024;
+    width: 55%;
+    border-radius: 0px 5px 5px 0px;
+}
