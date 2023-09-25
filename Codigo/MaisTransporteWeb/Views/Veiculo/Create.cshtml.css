@@ -1,6 +1,9 @@
-﻿
+﻿.container {
+    display: flex;
+    justify-content: center;
+}
 .row {
-    margin-bottom: 20px; 
+    margin-bottom: 60px; 
     padding: 10px;
     background-color: #232326; 
     border: 1px #232326;

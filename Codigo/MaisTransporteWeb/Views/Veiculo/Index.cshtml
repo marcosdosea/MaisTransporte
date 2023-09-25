@@ -4,14 +4,14 @@
     ViewData["Title"] = "Listagem de Veículos";
 }
 
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
 <h1>Listagem de Veículo</h1>
 
-
 <div class="col-2 btn btn-success">
-    <a asp-action="Create" class="btn btn-success">NOVO VEÍCULO</a>
+    <a style="text-decoration: none" asp-action="Create">NOVO VEÍCULO</a>
 </div>
-
-
+<div class="table-responsive">
 <table class="table">
     <thead>
         <tr>
@@ -72,3 +72,4 @@
 }
     </tbody>
 </table>
+</div>

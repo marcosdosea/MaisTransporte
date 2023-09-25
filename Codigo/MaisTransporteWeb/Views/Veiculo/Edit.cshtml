@@ -5,12 +5,14 @@
 }
 <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
-<h1>Editar Veículo</h1>
+
+<h1 style="text-align:center">Editar Veículo</h1>
 
 
 <hr />
+<div class="container">
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -48,16 +50,19 @@
                 <input asp-for="IdMotoristaPassageiro" class="form-control" />
                 <span asp-validation-for="IdMotoristaPassageiro" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Salvar" class="btn btn-primary" />
-            </div>
+            
+            <div class="row justify-content-around" id="buttonMargin">
+                <div class="col-6 w3-right-align">
+                        <a asp-action="Index" class="btn btn-danger  btn-sm">Cancelar</a>
+                </div>
+                <div class="form-group col-6">
+                        <input type="submit" value="Salvar" class="btn btn-success  btn-sm" />
+                </div>
+          </div>
         </form>
     </div>
 </div>
 
-<div>
-    <button type="button" class="btn btn-info"><a style="text-decoration: none" asp-action="Index">Voltar</a></button>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

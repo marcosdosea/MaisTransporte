@@ -8,3 +8,32 @@
 .tabele tbody tr td button {
     text-decoration: none;
 }
+.table-responsive {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    
+}
+
+th, td {
+    padding: 6px;
+    text-align: left;
+    
+}
+
+/* Estilos para tornar a tabela responsiva em telas pequenas */
+@media (max-width: 600px) {
+    table {
+        border: none; /* Remover bordas da tabela */
+        width: 100%;
+    }
+
+    th, td {
+        display: block; /* Colocar células em uma coluna */
+        width: 100%;
+    }
+}
