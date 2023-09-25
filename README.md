@@ -25,7 +25,12 @@ A criação de um software para o agendamento de passeios, mediante o cadastro p
 ## 4. Público alvo 🎯
 Os indivíduos que desejam realizar uma viagem, ir para uma festa, além dos motoristas.
 
-## 5. Equipe 🤝 
+## 5. Apresentação das telas
+<div>
+ <video src="https://github.com/marcosdosea/MaisTransporte/assets/105898363/d1f50686-0e6d-4d83-bd33-621e269fa930.mp4" autoplay poster="imagemprevia.jpg"></video>
+</div>
+
+## 6. Equipe🤝 
 <table style="border-collapse: collapse; border: 5px solid white;">
 <tr>
 <td align="center" style="border: 5px solid white; padding: 10px;">
@@ -55,3 +60,4 @@ Os indivíduos que desejam realizar uma viagem, ir para uma festa, além dos mot
 <p align="center"> 
   <img src="https://github.com/marcosdosea/MaisTransporte/assets/105898363/ad2c9860-287c-4989-a251-f24b36e4a97f">
 </p>
+
