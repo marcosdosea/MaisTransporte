@@ -3,46 +3,51 @@
 @{
     ViewData["Title"] = "Detalhes do Usuário";
 }
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
-<h1>Detalhes do Usuário</h1>
-
-<div>
-    <h4>Usuario</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Telefone)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Telefone)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataNascimento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataNascimento)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cpf)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cpf)
-        </dd>
-    </dl>
+<div class="text-center">
+    <h4>PASSAGEIRO</h4>
 </div>
-<div>
-    @Html.ActionLink("Editar", "Editar", new { cpf = Model.Cpf }) |
-    <a asp-action="Index">Voltar</a>
-</div> 
+<div class="w3-row w3-center">
+    <div class="w3-border">
+        <br />
+        <dl class="row">
+            <dt class="w3-right-align" style="width:50%">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="w3-left-align" style="width:50%">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class="w3-right-align" style="width:50%">
+                @Html.DisplayNameFor(model => model.Telefone)
+            </dt>
+            <dd class="w3-left-align" style="width:50%">
+                @Html.DisplayFor(model => model.Telefone)
+            </dd>
+            <dt class="w3-right-align" style="width:50%">
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+            <dd class="w3-left-align" style="width:50%">
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+            <dt class="w3-right-align" style="width:50%">
+                @Html.DisplayNameFor(model => model.DataNascimento)
+            </dt>
+            <dd class="w3-left-align" style="width:50%">
+                @Html.DisplayFor(model => model.DataNascimento)
+            </dd>
+            <dt class="w3-right-align" style="width:50%">
+                @Html.DisplayNameFor(model => model.Cpf)
+            </dt>
+            <dd class="w3-left-align" style="width:50%">
+                @Html.DisplayFor(model => model.Cpf)
+            </dd>
+        </dl>
+    </div>
+        <br>
+        <div class="text-center">
+            <a asp-action="Index" class="btn btn-danger">VOLTAR</a>
+        </div>
+    </div>
+</div>
+          
