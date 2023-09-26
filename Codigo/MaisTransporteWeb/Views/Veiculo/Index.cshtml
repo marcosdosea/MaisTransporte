@@ -4,11 +4,14 @@
     ViewData["Title"] = "Listagem de Veículos";
 }
 
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
 <h1>Listagem de Veículo</h1>
 
-<p>
-    <a asp-action="Create">Novo Veículo</a>
-</p>
+<div class="col-2 btn btn-success">
+    <a style="text-decoration: none" asp-action="Create">NOVO VEÍCULO</a>
+</div>
+<div class="table-responsive">
 <table class="table">
     <thead>
         <tr>
@@ -38,8 +41,8 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
-            <td>
+            <tr>
+                <td>
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
@@ -61,10 +64,12 @@
                 @Html.DisplayFor(modelItem => item.IdMotoristaPassageiro)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                    <button type="button" class="btn btnEditColor" onclick="alert('Editar Veículo?')">@Html.ActionLink("Editar", "Edit", new { id=item.Id })</button>
+                    <button type="button"  class="btn btn-info">@Html.ActionLink("Detalhes", "Details", new { id=item.Id })</button>
+                
             </td>
         </tr>
 }
     </tbody>
 </table>
+</div>

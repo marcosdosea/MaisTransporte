@@ -1,0 +1,28 @@
+﻿
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.row {
+    margin-bottom: 60px;
+    padding: 10px;
+    background-color: #232326;
+    border: 1px #232326;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+    .row p {
+        margin: 0;
+        font-size: 16px;
+        color: #232326;
+    }
+
+    .row a:hover {
+        text-decoration: underline;
+    }
+
+div {
+    text-decoration: none
+}
