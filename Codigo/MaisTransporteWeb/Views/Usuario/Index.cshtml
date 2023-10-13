@@ -1,20 +1,45 @@
 ﻿@model IEnumerable<MaisTransporteWeb.Models.UsuarioViewModel>
 
 @{
-    ViewData["Title"] = "Crie sua Conta";
+    ViewData["Title"] = "Criar Usuário";
 }
+
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
 <div class="text-center">
-    <h1> Crie sua Conta </h1>
+    <h3>Usuario</h3>
     <hr />
 </div>
 
 
-<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 w3-row">
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new {  id=item.Id}) |
+                    @Html.ActionLink("Detalhes", "Details", new { id=item.Id }) |
+                    @Html.ActionLink("Excluir", "Delete", new {  id=item.Id })
+                </td>
+            </tr>
+        </div>
+    </div>
+}
 <div class="row" id="buttonMargin">
     <div class="col-3"></div>
     <div class="col-6 btn btn-success">
-        <a asp-action="Create" class="btn btn-success">NOVO USUÁRIO</a>
+        <a asp-action="Create" class="btn btn-success">CRIAR</a>
     </div>
     <div class="col-3"></div>
 </div>
+
+
+

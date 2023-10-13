@@ -12,46 +12,48 @@
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8 w3-row">
-            <h4>Usuario</h4>
-            <hr />
-            <dl class="row">
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Email)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Email)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Telefone)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Telefone)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Nome)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Nome)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.DataNascimento)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.DataNascimento)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Cpf)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Cpf)
-                </dd>
-                <div class="row justify-content-around" id="buttonMargin">
-                    <div class="col-6 w3-right-align">
-                        <a asp-action="Index" class="btn btn-danger">CANCELAR</a>
-                    </div>
-                    <div class="form-group col-6">
-                        <input type="submit" value="EXCLUIR" class="btn btn-success" />
-                    </div>
+        <h4>Usuario</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Telefone)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Telefone)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DataNascimento)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DataNascimento)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Cpf)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Cpf)
+            </dd>
+            <div class="row justify-content-around" id="buttonMargin">
+                <div class="col-6 w3-right-align">
+                    <a asp-action="Index" class="btn btn-success">CANCELAR</a>
                 </div>
+                <div class="form-group col-6">
+                    <form asp-action="Delete">
+                        <input type="submit" value="EXCLUIR" class="btn btn-danger" />
+                    </form>
+                </div>
+            </div>
     </div>
 </div>
