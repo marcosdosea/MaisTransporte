@@ -49,7 +49,9 @@
                     <input type="submit" value="PASSAGEIRO" class="btn btn-success" />
                 </div>
                 <div class="form-group col-4">
-                    <input type="submit" value="MOTORISTA" class="btn btn-success" />
+                        <a href="https://localhost:7040/Motorista/create">
+                            <input type="button" value="MOTORISTA" class="btn btn-success" id="motorista-button" />
+                        </a>
                 </div>
             </div>
                 <div class="row justify-content-around">
@@ -62,8 +64,8 @@
     </div>
 </div>
 
-    @section Scripts {
-        @{
-            await Html.RenderPartialAsync("_ValidationScriptsPartial");
-        }
-        }
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
