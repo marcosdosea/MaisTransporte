@@ -18,6 +18,7 @@ namespace MaisTransporteAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddTransient<IUsuarioService, UsuarioService>();
             builder.Services.AddTransient<IViagemService, ViagemService>();
             builder.Services.AddTransient<ISugerirViagemService, SugerirViagemService>();
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
