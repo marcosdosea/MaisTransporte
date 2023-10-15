@@ -37,6 +37,12 @@ th, td {
         width: 100%;
     }
 }
+.btnColor {
+    color: white;
+    text-decoration: none;
+}
+
 .btnEditColor {
     background: #00875F;
+    color: white;
 }
