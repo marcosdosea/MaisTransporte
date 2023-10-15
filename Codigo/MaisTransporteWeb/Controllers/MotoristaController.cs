@@ -2,12 +2,14 @@
 using Core;
 using Core.Service;
 using MaisTransporteWeb.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service;
 
 namespace MaisTransporteWeb.Controllers
 {
+    [Authorize]
     public class MotoristaController : Controller
     {
         private readonly IMotoristaService motoristaService;

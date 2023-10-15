@@ -3,9 +3,11 @@ using Core.Service;
 using Core;
 using MaisTransporteWeb.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MaisTransporteWeb.Controllers
 {
+    [Authorize]
     public class ViagemController : Controller
     {
         private readonly IViagemService viagemService;
