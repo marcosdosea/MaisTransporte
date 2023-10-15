@@ -10,36 +10,46 @@
     <h3>Usuario</h3>
     <hr />
 </div>
-
-
-@foreach (var item in Model)
-{
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8 w3-row">
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new {  id=item.Id}) |
-                    @Html.ActionLink("Detalhes", "Details", new { id=item.Id }) |
-                    @Html.ActionLink("Excluir", "Delete", new {  id=item.Id })
-                </td>
-            </tr>
-        </div>
-    </div>
-}
-<div class="row" id="buttonMargin">
-    <div class="col-3"></div>
-    <div class="col-6 btn btn-success">
-        <a asp-action="Create" class="btn btn-success">CRIAR</a>
-    </div>
-    <div class="col-3"></div>
+<div class="col-2 btn btn-success">
+    <a style="text-decoration: none" asp-action="Create">CRIAR</a>
 </div>
 
 
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th></th>
+            </tr>
+
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        <button type="button" class="btn btnEditColor" onclick="alert('Editar Usuário?')">@Html.ActionLink("Editar", "Edit", new { id=item.Id })</button>
+                        <button type="button" class="btn btn-info">@Html.ActionLink("Detalhes", "Details", new { id=item.Id })</button>
+                        <button type="button" class="btn btn-danger">@Html.ActionLink("Excluir", "Delete", new { id=item.Id })</button>
+
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
 
