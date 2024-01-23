@@ -39,7 +39,7 @@ CREATE TABLE `aspnetusers` (
 
 LOCK TABLES `aspnetusers` WRITE;
 /*!40000 ALTER TABLE `aspnetusers` DISABLE KEYS */;
-INSERT INTO `aspnetusers` VALUES ('1','gilmario@gmail.com','qwe123','qwe123'),('10','nataliacosta196@gmail.com','1234','1234'),('11','alesandro@gmail.com','1234','1234'),('12',' edantas241@gmail.com','123456','123456'),('2','andreza@gmail.com','qwe123','qwe123'),('3','mariaclara@gmail.com','qwe123','qwe123'),('4','joaodossantos@gmail.com','qwe123','qwe123'),('6','rosa@gmail.com','qwe123','qwe123'),('7','anamaria@gmail.com','qwe123','qwe123'),('8','jessica@gmail.com','qwe123','qwe123'),('9','jessica@gmail.com','qwe123','qwe123');
+INSERT INTO `aspnetusers` VALUES ('1','gilmario@gmail.com','qwe123','qwe123'),('10','nataliacosta196@gmail.com','1234','1234'),('11','Alesandro','1234','1234'),('12',' edantas241@gmail.com','123456','123456'),('2','andreza@gmail.com','qwe123','qwe123'),('3','mariaclara@gmail.com','qwe123','qwe123'),('4','joaodossantos@gmail.com','qwe123','qwe123'),('6','rosa@gmail.com','qwe123','qwe123'),('7','anamaria@gmail.com','qwe123','qwe123'),('8','jessica@gmail.com','qwe123','qwe123'),('9','jessica@gmail.com','qwe123','qwe123');
 /*!40000 ALTER TABLE `aspnetusers` ENABLE KEYS */;
 UNLOCK TABLES;
 
