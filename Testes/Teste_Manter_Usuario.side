@@ -61,7 +61,7 @@
         ["xpath=//form[@id='account']/div/input", "xpath:idRelative"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "gilmariosantos1@gmail.com"
+      "value": "gilmario@gmail.com"
     }, {
       "id": "4de5c0e4-8c33-44df-84e2-b2593d5479f4",
       "comment": "",
@@ -89,7 +89,7 @@
         ["xpath=//form[@id='registerForm']/div[2]/input", "xpath:idRelative"],
         ["xpath=//div[2]/input", "xpath:position"]
       ],
-      "value": "qwe@123"
+      "value": "qwe123"
     }, {
       "id": "7e7005f5-29f7-43e7-941e-1f4f028f7239",
       "comment": "",
@@ -366,7 +366,7 @@
         ["xpath=//form[@id='account']/div/input", "xpath:idRelative"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "gilmariosantos1@gmail.com"
+      "value": "gilmario@gmail.com"
     }, {
       "id": "4de5c0e4-8c33-44df-84e2-b2593d5479f4",
       "comment": "",
@@ -394,7 +394,7 @@
         ["xpath=//form[@id='registerForm']/div[2]/input", "xpath:idRelative"],
         ["xpath=//div[2]/input", "xpath:position"]
       ],
-      "value": "qwe@123"
+      "value": "qwe123"
     }, {
       "id": "7e7005f5-29f7-43e7-941e-1f4f028f7239",
       "comment": "",
@@ -670,7 +670,7 @@
         ["xpath=//form[@id='account']/div/input", "xpath:idRelative"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "gilmariosantos1@gmail.com"
+      "value": "gilmario@gmail.com"
     }, {
       "id": "94afb409-3322-445c-9037-0227a3e551a1",
       "comment": "",
@@ -684,7 +684,7 @@
         ["xpath=//form[@id='account']/div[2]/input", "xpath:idRelative"],
         ["xpath=//div[2]/input", "xpath:position"]
       ],
-      "value": "qwe@123"
+      "value": "qwe123"
     }, {
       "id": "eee7153a-d910-4976-b09d-3d9d97ad8de5",
       "comment": "",
