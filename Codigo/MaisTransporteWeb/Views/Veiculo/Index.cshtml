@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<MaisTransporteWeb.Models.VeiculoViewModel>
+<link rel="stylesheet" type="text/css" href="~/lib/datatable/css/dataTables.min.css" />
 
 @{
     ViewData["Title"] = "Listagem de Veículos";
@@ -6,13 +7,21 @@
 
 <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
-<h1>Listagem de Veículo</h1>
-
-<div class="col-2 btn btn-success">
-    <a style="text-decoration: none" asp-action="Create">NOVO VEÍCULO</a>
+<div class="text-center">
+    <h3>Veículos</h3>
+    <hr />
 </div>
+
+<div class="row" id="buttonMargin">
+    <div class="col-3"></div>
+    <div class="col-6 btn btn-success">
+        <a asp-action="Create" class="btn btn-success">NOVO VEÍCULO</a>
+    </div>
+    <div class="col-3"></div>
+</div>
+
 <div class="table-responsive">
-<table class="table">
+<table id="tableVeiculo" class="table">
     <thead>
         <tr>
             <th>
@@ -73,3 +82,16 @@
     </tbody>
 </table>
 </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#tableVeiculo').DataTable({
+                language: {
+                    url: 'lib/datatable/js/pt-BR.json'
+                }
+            });
+        });
+    </script>
+    <script src="~/lib/datatable/js/dataTables.min.js"></script>
+}
