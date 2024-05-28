@@ -7,17 +7,20 @@ namespace MaisTransporteWeb.Models
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "E-mail")]
+
         [Required(ErrorMessage = "E-mail é obrigatório.")]
-        [StringLength(50, MinimumLength = 10, ErrorMessage = "E-mail deve ter entre 10 e 50 caracteres")]
+        [Display(Name = "E-mail", Prompt = "exemplo@dominio.com")]
+        [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "O campo E-mail deve estar no formato exemplo@dominio.com.")]
+        [EmailAddress(ErrorMessage = "O E-mail fornecido não é válido.")]
+        [StringLength(50, ErrorMessage = "O campo E-mail deve ter no máximo {1} caracteres.")]
         public string Email { get; set; } = null!;
 
-        [Display(Name = "Telefone")]
-        [Required(ErrorMessage = "Telefone é obrigatório.")]
-        [StringLength(15, MinimumLength = 11, ErrorMessage = "Telefone deve ter entre 11 e 15 caracteres")]
+        [Display(Name = "Telefone", Prompt = "(00) 00000-0000")]
+        [RegularExpression(@"^\(\d{2}\) \d{5}-\d{4}$", ErrorMessage = "O campo Telefone deve estar no formato (XX) XXXXX-XXXX.")]
+        [StringLength(15)]
         public string Telefone { get; set; } = null!;
 
-        [Display(Name = "Nome")]
+        [Display(Name = "Nome", Prompt = "Nome")]
         [Required(ErrorMessage = "Nome é obrigatório.")]
         [StringLength(50, MinimumLength = 5, ErrorMessage = "Nome deve ter entre 5 e 50 caracteres")]
         public string Nome { get; set; } = null!;
@@ -28,9 +31,10 @@ namespace MaisTransporteWeb.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataNascimento { get; set; }
 
-        [Display(Name = "CPF")]
-        [Required(ErrorMessage = "CPF é obrigatório.")]
-        [StringLength(15, MinimumLength = 11, ErrorMessage = "CPF deve ter entre 11 e 15 caracteres")]
+        [Required(ErrorMessage = "O campo CPF é obrigatório.")]
+        [RegularExpression(@"^\d{3}\.\d{3}\.\d{3}-\d{2}$", ErrorMessage = "CPF inválido")]
+        [StringLength(14)]
+        [Display(Name = "CPF", Prompt = "000.000.000-00")]
         public string Cpf { get; set; } = null!;
     }
 }
