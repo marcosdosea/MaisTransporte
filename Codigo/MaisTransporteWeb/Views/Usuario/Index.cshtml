@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<MaisTransporteWeb.Models.UsuarioViewModel>
+<link rel="stylesheet" type="text/css" href="~/lib/datatable/css/dataTables.min.css" />
 
 @{
     ViewData["Title"] = "Criar Usuário";
@@ -7,22 +8,26 @@
 <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
 <div class="text-center">
-    <h3>Usuario</h3>
+    <h3>Usuários</h3>
     <hr />
 </div>
-<div class="col-2 btn btn-success">
-    <a style="text-decoration: none" asp-action="Create">CRIAR</a>
+
+<div class="row" id="buttonMargin">
+    <div class="col-3"></div>
+    <div class="col-6 btn btn-success">
+        <a asp-action="Create" class="btn btn-success">NOVO USUÁRIO</a>
+    </div>
+    <div class="col-3"></div>
 </div>
 
-
 <div class="table-responsive">
-    <table class="table">
+    <table id="tableUsuario" class="table">
         <thead>
             <tr>
-                <th>
+                <th class="text-center">
                     @Html.DisplayNameFor(model => model.Id)
                 </th>
-                <th>
+                <th class="text-center">
                     @Html.DisplayNameFor(model => model.Nome)
                 </th>
                 <th></th>
@@ -34,13 +39,13 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>
+                    <td class="text-center">
                         @Html.DisplayFor(modelItem => item.Id)
                     </td>
-                    <td>
+                    <td class="text-center">
                         @Html.DisplayFor(modelItem => item.Nome)
                     </td>
-                    <td>
+                    <td class="text-center">
                         <button type="button" class="btn btnEditColor" onclick="alert('Editar Usuário?')">@Html.ActionLink("Editar", "Edit", new { id=item.Id })</button>
                         <button type="button" class="btn btnColor btn-info">@Html.ActionLink("Detalhes", "Details", new { id=item.Id })</button>
                         <button type="button" class="btn btn-danger">@Html.ActionLink("Excluir", "Delete", new { id=item.Id })</button>
@@ -52,4 +57,17 @@
         </tbody>
     </table>
 </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#tableUsuario').DataTable({
+                language: {
+                    url: 'lib/datatable/js/pt-BR.json'
+                }
+            });
+        });
+    </script>
+    <script src="~/lib/datatable/js/dataTables.min.js"></script>
+}
 
