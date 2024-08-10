@@ -26,14 +26,14 @@ namespace Service
         /// </summary>
         /// <param name="avaliacao">dados da avaliação</param>
         /// <returns></returns>
-        public int Create(Avaliacao avaliacao)
+        public uint Create(Avaliacao avaliacao)
         {
             _context.Add(avaliacao);
             _context.SaveChanges();
             return avaliacao.Id;
         }
 
-        public Avaliacao Get(int id)
+        public Avaliacao Get(uint id)
         {
             return _context.Avaliacaos.Find(id);
         }

@@ -8,9 +8,9 @@ namespace Core;
 
 public interface IAvaliacaoViagemService
 {
-    int Create(Avaliacao avaliacao);
+    uint Create(Avaliacao avaliacao);
 
-    Avaliacao Get(int id);
+    Avaliacao Get(uint id);
 
     IEnumerable<Avaliacao> GetAll();
 
