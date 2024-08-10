@@ -7,10 +7,6 @@
 <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 <h1> Dados do CRLV </h1>
 
-<div class="col-2 btn btn-success">
-    <a style="text-decoration: none" asp-action="Create">Novo Motorista</a>
-</div>
-
 <div class="table-responsive">
     <table class="table">
         <thead>
@@ -22,7 +18,7 @@
                     @Html.DisplayNameFor(model => model.DataEmissao)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.OrgaoExpeditor)
+                    @Html.DisplayNameFor(model => model.Expeditor)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Estado)
@@ -41,7 +37,7 @@
                             @Html.DisplayFor(modelItem => item.DataEmissao)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.OrgaoExpeditor)
+                            @Html.DisplayFor(modelItem => item.Expeditor)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Estado)
