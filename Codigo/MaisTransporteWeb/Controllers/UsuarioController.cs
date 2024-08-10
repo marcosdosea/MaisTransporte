@@ -24,7 +24,7 @@ namespace MaisTransporteWeb.Controllers
         // GET: UsuarioController
         public ActionResult Index()
         {
-            var listaUsuarios =  usuarioService.GetAll();
+            var listaUsuarios = usuarioService.GetAll();
             var listaUsuariosViewModel = mapper.Map<List<UsuarioViewModel>>(listaUsuarios);
             return View(listaUsuariosViewModel);
         }
@@ -46,14 +46,27 @@ namespace MaisTransporteWeb.Controllers
         // POST: UsuarioController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(UsuarioViewModel usuarioViewModel)
+        public ActionResult Create(UsuarioViewModel usuarioViewModel, string submitButton)
         {
             if (ModelState.IsValid)
             {
-                var usuario = mapper.Map<Passageiro>(usuarioViewModel);
-                usuarioService.Create(usuario);
+                var passageiro = mapper.Map<Passageiro>(usuarioViewModel);
+
+                // Cria o passageiro e retorna o ID
+                usuarioService.Create(passageiro);
+
+                if (submitButton == "MOTORISTA")
+                {
+                    // Redireciona para a criação de motorista com o ID do passageiro
+                    return RedirectToAction("Create", "Motorista", new { idPassageiro = passageiro.Id });
+                }
+
+                // Se for "PASSAGEIRO", redireciona para a index
+                return RedirectToAction(nameof(Index));
             }
-            return RedirectToAction(nameof(Index));
+
+            // Se o modelo não for válido, retorna à mesma view com os erros
+            return View(usuarioViewModel);
         }
 
         // GET: UsuarioController/Edit/5
