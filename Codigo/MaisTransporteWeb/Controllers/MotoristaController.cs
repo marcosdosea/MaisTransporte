@@ -13,11 +13,13 @@ namespace MaisTransporteWeb.Controllers
     public class MotoristaController : Controller
     {
         private readonly IMotoristaService motoristaService;
+        private readonly IUsuarioService usuarioService;
         private readonly IMapper mapper;
 
-        public MotoristaController(IMotoristaService motoristaService, IMapper mapper)
+        public MotoristaController(IMotoristaService motoristaService, IUsuarioService usuarioService, IMapper mapper)
         {
             this.motoristaService = motoristaService;
+            this.usuarioService = usuarioService;
             this.mapper = mapper;
         }
 
@@ -38,23 +40,44 @@ namespace MaisTransporteWeb.Controllers
         }
 
         // GET: MotoristaController/Create
-        public ActionResult Create()
+        public ActionResult Create(int? idPassageiro)
         {
-            return View();
+            var motoristaViewModel = new MotoristaViewModel();
+            if (idPassageiro.HasValue)
+            {
+                motoristaViewModel.IdPassageiro = idPassageiro.Value;
+            }
+            return View(motoristaViewModel);
         }
 
         // POST: MotoristaController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(MotoristaViewModel motoristaViewModel)
+        public ActionResult Create(MotoristaViewModel motoristaViewModel, int idPassageiro)
         {
             if (ModelState.IsValid)
             {
+                // Verifica se o Passageiro existe
+                var passageiro = usuarioService.Get(idPassageiro);
+                if (passageiro == null)
+                {
+                    ModelState.AddModelError("", "O passageiro especificado não existe." + idPassageiro);
+                    return View(motoristaViewModel);
+                }
+
+                // Mapear o view model para a entidade Motoristum
                 var motorista = mapper.Map<Motoristum>(motoristaViewModel);
+                motorista.IdPassageiro = idPassageiro;
+
+                // Definir a navegação de referência para garantir a associação correta
+                motorista.IdPassageiroNavigation = passageiro;
+
                 motoristaService.Create(motorista);
+                return RedirectToAction(nameof(Index));
             }
-            return RedirectToAction(nameof(Index));
+            return View(motoristaViewModel);
         }
+
 
         // GET: MotoristaController/Edit/5
         public ActionResult Edit(int id)

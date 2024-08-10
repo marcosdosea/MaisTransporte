@@ -15,7 +15,21 @@ public partial class MaisTransporteContext : DbContext
     {
     }
 
+    public virtual DbSet<Aspnetrole> Aspnetroles { get; set; }
+
+    public virtual DbSet<Aspnetroleclaim> Aspnetroleclaims { get; set; }
+
+    public virtual DbSet<Aspnetuser> Aspnetusers { get; set; }
+
+    public virtual DbSet<Aspnetuserclaim> Aspnetuserclaims { get; set; }
+
+    public virtual DbSet<Aspnetuserlogin> Aspnetuserlogins { get; set; }
+
+    public virtual DbSet<Aspnetusertoken> Aspnetusertokens { get; set; }
+
     public virtual DbSet<Avaliacao> Avaliacaos { get; set; }
+
+    public virtual DbSet<Efmigrationshistory> Efmigrationshistories { get; set; }
 
     public virtual DbSet<Motoristum> Motorista { get; set; }
 
@@ -37,6 +51,107 @@ public partial class MaisTransporteContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Aspnetrole>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("aspnetroles");
+
+            entity.HasIndex(e => e.NormalizedName, "RoleNameIndex").IsUnique();
+
+            entity.Property(e => e.Name).HasMaxLength(256);
+            entity.Property(e => e.NormalizedName).HasMaxLength(256);
+        });
+
+        modelBuilder.Entity<Aspnetroleclaim>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("aspnetroleclaims");
+
+            entity.HasIndex(e => e.RoleId, "IX_AspNetRoleClaims_RoleId");
+
+            entity.HasOne(d => d.Role).WithMany(p => p.Aspnetroleclaims)
+                .HasForeignKey(d => d.RoleId)
+                .HasConstraintName("FK_AspNetRoleClaims_AspNetRoles_RoleId");
+        });
+
+        modelBuilder.Entity<Aspnetuser>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("aspnetusers");
+
+            entity.HasIndex(e => e.NormalizedEmail, "EmailIndex");
+
+            entity.HasIndex(e => e.NormalizedUserName, "UserNameIndex").IsUnique();
+
+            entity.Property(e => e.Email).HasMaxLength(256);
+            entity.Property(e => e.LockoutEnd).HasColumnType("datetime");
+            entity.Property(e => e.NormalizedEmail).HasMaxLength(256);
+            entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
+            entity.Property(e => e.UserName).HasMaxLength(256);
+
+            entity.HasMany(d => d.Roles).WithMany(p => p.Users)
+                .UsingEntity<Dictionary<string, object>>(
+                    "Aspnetuserrole",
+                    r => r.HasOne<Aspnetrole>().WithMany()
+                        .HasForeignKey("RoleId")
+                        .HasConstraintName("FK_AspNetUserRoles_AspNetRoles_RoleId"),
+                    l => l.HasOne<Aspnetuser>().WithMany()
+                        .HasForeignKey("UserId")
+                        .HasConstraintName("FK_AspNetUserRoles_AspNetUsers_UserId"),
+                    j =>
+                    {
+                        j.HasKey("UserId", "RoleId").HasName("PRIMARY");
+                        j.ToTable("aspnetuserroles");
+                        j.HasIndex(new[] { "RoleId" }, "IX_AspNetUserRoles_RoleId");
+                    });
+        });
+
+        modelBuilder.Entity<Aspnetuserclaim>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("aspnetuserclaims");
+
+            entity.HasIndex(e => e.UserId, "IX_AspNetUserClaims_UserId");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Aspnetuserclaims)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK_AspNetUserClaims_AspNetUsers_UserId");
+        });
+
+        modelBuilder.Entity<Aspnetuserlogin>(entity =>
+        {
+            entity.HasKey(e => new { e.LoginProvider, e.ProviderKey }).HasName("PRIMARY");
+
+            entity.ToTable("aspnetuserlogins");
+
+            entity.HasIndex(e => e.UserId, "IX_AspNetUserLogins_UserId");
+
+            entity.Property(e => e.LoginProvider).HasMaxLength(128);
+            entity.Property(e => e.ProviderKey).HasMaxLength(128);
+
+            entity.HasOne(d => d.User).WithMany(p => p.Aspnetuserlogins)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK_AspNetUserLogins_AspNetUsers_UserId");
+        });
+
+        modelBuilder.Entity<Aspnetusertoken>(entity =>
+        {
+            entity.HasKey(e => new { e.UserId, e.LoginProvider, e.Name }).HasName("PRIMARY");
+
+            entity.ToTable("aspnetusertokens");
+
+            entity.Property(e => e.LoginProvider).HasMaxLength(128);
+            entity.Property(e => e.Name).HasMaxLength(128);
+
+            entity.HasOne(d => d.User).WithMany(p => p.Aspnetusertokens)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK_AspNetUserTokens_AspNetUsers_UserId");
+        });
+
         modelBuilder.Entity<Avaliacao>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
@@ -47,21 +162,13 @@ public partial class MaisTransporteContext : DbContext
 
             entity.HasIndex(e => e.IdViagem, "fk_Avaliacao_Viagem1_idx");
 
-            entity.Property(e => e.Id)
-                .HasColumnType("int(10) unsigned")
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Comentario)
                 .HasMaxLength(200)
                 .HasColumnName("comentario");
-            entity.Property(e => e.IdPassageiro)
-                .HasColumnType("int(11)")
-                .HasColumnName("idPassageiro");
-            entity.Property(e => e.IdViagem)
-                .HasColumnType("int(11)")
-                .HasColumnName("idViagem");
-            entity.Property(e => e.Nota)
-                .HasColumnType("int(11)")
-                .HasColumnName("nota");
+            entity.Property(e => e.IdPassageiro).HasColumnName("idPassageiro");
+            entity.Property(e => e.IdViagem).HasColumnName("idViagem");
+            entity.Property(e => e.Nota).HasColumnName("nota");
 
             entity.HasOne(d => d.IdPassageiroNavigation).WithMany(p => p.Avaliacaos)
                 .HasForeignKey(d => d.IdPassageiro)
@@ -74,6 +181,16 @@ public partial class MaisTransporteContext : DbContext
                 .HasConstraintName("fk_Avaliacao_Viagem1");
         });
 
+        modelBuilder.Entity<Efmigrationshistory>(entity =>
+        {
+            entity.HasKey(e => e.MigrationId).HasName("PRIMARY");
+
+            entity.ToTable("__efmigrationshistory");
+
+            entity.Property(e => e.MigrationId).HasMaxLength(150);
+            entity.Property(e => e.ProductVersion).HasMaxLength(32);
+        });
+
         modelBuilder.Entity<Motoristum>(entity =>
         {
             entity.HasKey(e => e.IdPassageiro).HasName("PRIMARY");
@@ -82,9 +199,7 @@ public partial class MaisTransporteContext : DbContext
 
             entity.HasIndex(e => e.IdPassageiro, "fk_Motorista_Passageiro1_idx");
 
-            entity.Property(e => e.IdPassageiro)
-                .HasColumnType("int(11)")
-                .HasColumnName("idPassageiro");
+            entity.Property(e => e.IdPassageiro).HasColumnName("idPassageiro");
             entity.Property(e => e.DataEmissao)
                 .HasColumnType("datetime")
                 .HasColumnName("dataEmissao");
@@ -122,9 +237,7 @@ public partial class MaisTransporteContext : DbContext
 
             entity.HasIndex(e => e.Nome, "idx_nome");
 
-            entity.Property(e => e.Id)
-                .HasColumnType("int(11)")
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Cpf)
                 .HasMaxLength(15)
                 .HasColumnName("cpf");
@@ -146,7 +259,7 @@ public partial class MaisTransporteContext : DbContext
                     "Passageirosugestaoviagem",
                     r => r.HasOne<Sugestaoviagem>().WithMany()
                         .HasForeignKey("IdSugestaoViagem")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("fk_PassageiroSugestaoViagem_SugestaoViagem1"),
                     l => l.HasOne<Passageiro>().WithMany()
                         .HasForeignKey("IdPassageiro")
@@ -159,11 +272,8 @@ public partial class MaisTransporteContext : DbContext
                         j.HasIndex(new[] { "IdSugestaoViagem" }, "fk_Passageiro_has_SugestaoViagem_SugestaoViagem1_idx");
                         j.IndexerProperty<int>("IdPassageiro")
                             .ValueGeneratedOnAdd()
-                            .HasColumnType("int(11)")
                             .HasColumnName("idPassageiro");
-                        j.IndexerProperty<int>("IdSugestaoViagem")
-                            .HasColumnType("int(11)")
-                            .HasColumnName("idSugestaoViagem");
+                        j.IndexerProperty<int>("IdSugestaoViagem").HasColumnName("idSugestaoViagem");
                     });
 
             entity.HasMany(d => d.IdViagems).WithMany(p => p.IdPassageiros)
@@ -171,11 +281,11 @@ public partial class MaisTransporteContext : DbContext
                     "Passageiroviagem",
                     r => r.HasOne<Viagem>().WithMany()
                         .HasForeignKey("IdViagem")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("fk_PassageiroViagem_Viagem1"),
                     l => l.HasOne<Passageiro>().WithMany()
                         .HasForeignKey("IdPassageiro")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("fk_PassageiroViagem_Passageiro1"),
                     j =>
                     {
@@ -183,12 +293,8 @@ public partial class MaisTransporteContext : DbContext
                         j.ToTable("passageiroviagem");
                         j.HasIndex(new[] { "IdPassageiro" }, "fk_Passageiro_has_Viagem_Passageiro1_idx");
                         j.HasIndex(new[] { "IdViagem" }, "fk_Passageiro_has_Viagem_Viagem1_idx");
-                        j.IndexerProperty<int>("IdPassageiro")
-                            .HasColumnType("int(11)")
-                            .HasColumnName("idPassageiro");
-                        j.IndexerProperty<int>("IdViagem")
-                            .HasColumnType("int(11)")
-                            .HasColumnName("idViagem");
+                        j.IndexerProperty<int>("IdPassageiro").HasColumnName("idPassageiro");
+                        j.IndexerProperty<int>("IdViagem").HasColumnName("idViagem");
                     });
         });
 
@@ -202,18 +308,12 @@ public partial class MaisTransporteContext : DbContext
 
             entity.HasIndex(e => e.IdViagem, "fk_Reembolso_Viagem1_idx");
 
-            entity.Property(e => e.Id)
-                .HasColumnType("int(10) unsigned")
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Data)
                 .HasColumnType("datetime")
                 .HasColumnName("data");
-            entity.Property(e => e.IdPassageiro)
-                .HasColumnType("int(11)")
-                .HasColumnName("idPassageiro");
-            entity.Property(e => e.IdViagem)
-                .HasColumnType("int(11)")
-                .HasColumnName("idViagem");
+            entity.Property(e => e.IdPassageiro).HasColumnName("idPassageiro");
+            entity.Property(e => e.IdViagem).HasColumnName("idViagem");
             entity.Property(e => e.Valor).HasColumnName("valor");
 
             entity.HasOne(d => d.IdPassageiroNavigation).WithMany(p => p.Reembolsos)
@@ -237,18 +337,13 @@ public partial class MaisTransporteContext : DbContext
 
             entity.HasIndex(e => e.IdViagem, "fk_Reserva_Viagem1_idx");
 
-            entity.Property(e => e.Id)
-                .HasColumnType("int(11)")
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.DataCompra)
                 .HasColumnType("datetime")
                 .HasColumnName("dataCompra");
-            entity.Property(e => e.IdPassageiro)
-                .HasColumnType("int(11)")
-                .HasColumnName("idPassageiro");
+            entity.Property(e => e.IdPassageiro).HasColumnName("idPassageiro");
             entity.Property(e => e.IdViagem)
                 .ValueGeneratedOnAdd()
-                .HasColumnType("int(11)")
                 .HasColumnName("idViagem");
             entity.Property(e => e.StausPagamento)
                 .HasMaxLength(50)
@@ -276,9 +371,7 @@ public partial class MaisTransporteContext : DbContext
 
             entity.HasIndex(e => e.LocalDestino, "idx_localDestino");
 
-            entity.Property(e => e.Id)
-                .HasColumnType("int(11)")
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.DataChegada)
                 .HasColumnType("datetime")
                 .HasColumnName("dataChegada");
@@ -288,9 +381,7 @@ public partial class MaisTransporteContext : DbContext
             entity.Property(e => e.Descricao)
                 .HasMaxLength(100)
                 .HasColumnName("descricao");
-            entity.Property(e => e.IdPassageiro)
-                .HasColumnType("int(11)")
-                .HasColumnName("idPassageiro");
+            entity.Property(e => e.IdPassageiro).HasColumnName("idPassageiro");
             entity.Property(e => e.LocalDestino)
                 .HasMaxLength(50)
                 .HasColumnName("localDestino");
@@ -300,9 +391,7 @@ public partial class MaisTransporteContext : DbContext
             entity.Property(e => e.Titulo)
                 .HasMaxLength(50)
                 .HasColumnName("titulo");
-            entity.Property(e => e.TotalVagas)
-                .HasColumnType("int(11)")
-                .HasColumnName("totalVagas");
+            entity.Property(e => e.TotalVagas).HasColumnName("totalVagas");
             entity.Property(e => e.ValorPassagem).HasColumnName("valorPassagem");
             entity.Property(e => e.Visibilidade)
                 .HasDefaultValueSql("'Pública'")
@@ -327,9 +416,7 @@ public partial class MaisTransporteContext : DbContext
 
             entity.HasIndex(e => e.Renavam, "renavam_UNIQUE").IsUnique();
 
-            entity.Property(e => e.Id)
-                .HasColumnType("int(11)")
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.DataEmissao)
                 .HasColumnType("datetime")
                 .HasColumnName("dataEmissao");
@@ -339,9 +426,7 @@ public partial class MaisTransporteContext : DbContext
             entity.Property(e => e.Expedidor)
                 .HasMaxLength(5)
                 .HasColumnName("expedidor");
-            entity.Property(e => e.IdMotoristaPassageiro)
-                .HasColumnType("int(11)")
-                .HasColumnName("idMotoristaPassageiro");
+            entity.Property(e => e.IdMotoristaPassageiro).HasColumnName("idMotoristaPassageiro");
             entity.Property(e => e.Placa)
                 .HasMaxLength(10)
                 .HasColumnName("placa");
@@ -363,9 +448,7 @@ public partial class MaisTransporteContext : DbContext
 
             entity.HasIndex(e => e.LocalDestino, "idx_localDestino");
 
-            entity.Property(e => e.Id)
-                .HasColumnType("int(11)")
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.DataChegada)
                 .HasColumnType("datetime")
                 .HasColumnName("dataChegada");
@@ -375,9 +458,7 @@ public partial class MaisTransporteContext : DbContext
             entity.Property(e => e.Descricao)
                 .HasMaxLength(100)
                 .HasColumnName("descricao");
-            entity.Property(e => e.IdMotorista)
-                .HasColumnType("int(11)")
-                .HasColumnName("idMotorista");
+            entity.Property(e => e.IdMotorista).HasColumnName("idMotorista");
             entity.Property(e => e.LocalDestino)
                 .HasMaxLength(50)
                 .HasColumnName("localDestino");
@@ -387,9 +468,7 @@ public partial class MaisTransporteContext : DbContext
             entity.Property(e => e.Titulo)
                 .HasMaxLength(50)
                 .HasColumnName("titulo");
-            entity.Property(e => e.TotalVagas)
-                .HasColumnType("int(11)")
-                .HasColumnName("totalVagas");
+            entity.Property(e => e.TotalVagas).HasColumnName("totalVagas");
             entity.Property(e => e.ValorPassagem).HasColumnName("valorPassagem");
         });
 

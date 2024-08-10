@@ -5,7 +5,7 @@ namespace Core;
 
 public partial class Avaliacao
 {
-    public int Id { get; set; }
+    public uint Id { get; set; }
 
     public int Nota { get; set; }
 
