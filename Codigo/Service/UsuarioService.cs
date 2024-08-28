@@ -49,6 +49,10 @@ namespace Service
         /// <param name="id">id do passageiro</param>
         public void Delete(int id)
         {
+            var motoristaAssociado = _context.Motorista.Where(m => m.IdPassageiro == id);
+            _context.Motorista.RemoveRange(motoristaAssociado);
+            var veiculoAssociado = _context.Veiculos.Where(m => m.IdMotoristaPassageiro == id);
+            _context.Veiculos.RemoveRange(veiculoAssociado);
             var _passageiro = _context.Passageiros.Find(id);
             _context.Remove(_passageiro);
             _context.SaveChanges();
