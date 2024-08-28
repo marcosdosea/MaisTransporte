@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Core;
 using Core.Service;
 using MaisTransporteWeb.Models;
@@ -57,6 +57,7 @@ namespace MaisTransporteWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 // Verifica se o Passageiro existe
                 var passageiro = usuarioService.Get(idPassageiro);
                 if (passageiro == null)
@@ -73,9 +74,10 @@ namespace MaisTransporteWeb.Controllers
                 motorista.IdPassageiroNavigation = passageiro;
 
                 motoristaService.Create(motorista);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Create", "Veiculo", new { idPassageiro = idPassageiro });
             }
             return View(motoristaViewModel);
+
         }
 
 
