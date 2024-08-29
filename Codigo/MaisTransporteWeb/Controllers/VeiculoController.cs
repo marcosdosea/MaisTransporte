@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Core;
 using Core.Service;
 using MaisTransporteWeb.Models;
@@ -13,11 +13,13 @@ namespace MaisTransporteWeb.Controllers
     public class VeiculoController : Controller
     {
         private readonly IVeiculoService veiculoService;
+        private readonly IMotoristaService motoristaService;
         private readonly IMapper mapper;
 
-        public VeiculoController(IVeiculoService veiculoService, IMapper mapper)
+        public VeiculoController(IVeiculoService veiculoService, IMotoristaService motoristaService, IMapper mapper)
         {
             this.veiculoService = veiculoService;
+            this.motoristaService = motoristaService;
             this.mapper = mapper;
         }
         // GET: VeiculoController
@@ -37,24 +39,45 @@ namespace MaisTransporteWeb.Controllers
         }
 
         // GET: VeiculoController/Create
-        public ActionResult Create()
+        public ActionResult Create(int? idPassageiro)
         {
-
-            return View();
+            var veiculoViewModel = new VeiculoViewModel();
+            if (idPassageiro.HasValue)
+            {
+                veiculoViewModel.IdMotoristaPassageiro = idPassageiro.Value;
+            }
+            return View(veiculoViewModel);
         }
+
 
         // POST: VeiculoController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(VeiculoViewModel veiculoViewModel)
+        public ActionResult Create(VeiculoViewModel veiculoViewModel, int idPassageiro)
         {
             if (ModelState.IsValid)
             {
+                // Verifica se o Motorista existe
+                var motorista = motoristaService.Get(idPassageiro);
+                if (motorista == null)
+                {
+                    ModelState.AddModelError("", "O motorista especificado não existe." + idPassageiro);
+                    return View(veiculoViewModel);
+                }
+
+                // Mapear o view model para a entidade Veiculo
                 var veiculo = mapper.Map<Veiculo>(veiculoViewModel);
+                veiculo.IdMotoristaPassageiro = idPassageiro;
+
+                // Definir a navegação de referência para garantir a associação correta
+                veiculo.IdMotoristaPassageiroNavigation = motorista;
+
                 veiculoService.Create(veiculo);
+                return RedirectToAction(nameof(Index));
             }
-            return RedirectToAction(nameof(Index));
+            return View(veiculoViewModel);
         }
+
 
         // GET: VeiculoController/Edit/5
         public ActionResult Edit(int id)
