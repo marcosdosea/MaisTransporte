@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MaisTransporteWeb.Models
 {
@@ -6,7 +7,7 @@ namespace MaisTransporteWeb.Models
     {
         [Key]
         public int Id { get; set; }
-        
+
         [Display(Name = "Título", Prompt = "Título")]
         [Required(ErrorMessage = "Título da viagem é obrigatório.")]
         [StringLength(50, MinimumLength = 5, ErrorMessage = "Título da viagem deve ter entre 5 e 50 caracteres")]
@@ -31,13 +32,13 @@ namespace MaisTransporteWeb.Models
         public int TotalVagas { get; set; }
 
         [Display(Name = "Data e Horário de partida")]
-        [DataType(DataType.DateTime, ErrorMessage ="Data válida requerida")]
+        [DataType(DataType.DateTime, ErrorMessage = "Data válida requerida")]
         [Required(ErrorMessage = "A data e o horário de partida são obrigatórios.")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataPartida { get; set; }
 
         [Display(Name = "Data e Horário de volta")]
-        [DataType(DataType.DateTime, ErrorMessage ="Data válida requerida")]
+        [DataType(DataType.DateTime, ErrorMessage = "Data válida requerida")]
         [Required(ErrorMessage = "A data e o horário de volta são obrigatórios.")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataChegada { get; set; }
@@ -47,10 +48,19 @@ namespace MaisTransporteWeb.Models
         [StringLength(100, MinimumLength = 10, ErrorMessage = "A descrição deve ter entre 10 e 100 caracteres")]
         public string Descricao { get; set; } = null!;
 
-        [Display(Name = "Visibilidade", Prompt = "Visibilidade")]
+        [Display(Name = "Visibilidade")]
         [Required(ErrorMessage = "Visibilidade da viagem é obrigatória.")]
         public string Visibilidade { get; set; } = null!;
-        
+
+        [Display(Name = "Visibilidade")]
+        public string VisibilidadeDisplay
+        {
+            get
+            {
+                return Visibilidade == "P" ? "Pública" : Visibilidade == "R" ? "Privada" : "Desconhecido";
+            }
+        }
+
         [Display(Name = "Código do Passageiro", Prompt = "Código do passageiro")]
         [Required(ErrorMessage = "Código do passageiro é obrigatório.")]
         public int IdPassageiro { get; set; }
