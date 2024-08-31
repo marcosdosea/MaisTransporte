@@ -23,6 +23,10 @@ public partial class Sugestaoviagem
 
     public string Descricao { get; set; } = null!;
 
+    /// <summary>
+    /// P- PÚBLICA
+    /// R- RESTRITA/PRIVADA
+    /// </summary>
     public string Visibilidade { get; set; } = null!;
 
     public int IdPassageiro { get; set; }
