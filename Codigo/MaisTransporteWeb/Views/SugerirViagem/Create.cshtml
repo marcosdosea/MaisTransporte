@@ -59,17 +59,21 @@
                     <textarea asp-for="Descricao" class="form-control" cols="40" rows="3"></textarea>
                     <span asp-validation-for="Descricao" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Visibilidade" class="control-label"></label>
-                    <input asp-for="Visibilidade" class="form-control" />
-                    <span asp-validation-for="Visibilidade" class="text-danger"></span>
+                <div class="row justify-content-around">
+                    <div class="form-group col-sm-6">
+                        <label asp-for="Visibilidade" class="control-label"></label>
+                        <select asp-for="Visibilidade" class="form-select form-control">
+                            <option value="P">Pública</option>
+                            <option value="R">Privada</option>
+                        </select>
+                        <span asp-validation-for="Visibilidade" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label asp-for="IdPassageiro" class="control-label"></label>
+                        <input asp-for="IdPassageiro" class="form-control" />
+                        <span asp-validation-for="IdPassageiro" class="text-danger"></span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label asp-for="IdPassageiro" class="control-label"></label>
-                    <input asp-for="IdPassageiro" class="form-control" />
-                    <span asp-validation-for="IdPassageiro" class="text-danger"></span>
-                </div>
-
                 <div class="row justify-content-around" id="buttonMargin">
                     <div class="col-6 w3-right-align">
                         <a asp-action="Index" class="btn btn-danger">CANCELAR</a>
