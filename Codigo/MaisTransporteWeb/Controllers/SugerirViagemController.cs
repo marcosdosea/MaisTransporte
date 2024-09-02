@@ -4,6 +4,7 @@ using Core;
 using Core.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Service;
 
 namespace MaisTransporteWeb.Controllers
 {
@@ -11,11 +12,13 @@ namespace MaisTransporteWeb.Controllers
     public class SugerirViagemController : Controller
     {
         private readonly ISugerirViagemService sugerirViagemService;
+        private readonly IViagemService viagemService;
         private readonly IMapper mapper;
 
-        public SugerirViagemController(ISugerirViagemService sugerirViagemService, IMapper mapper)
+        public SugerirViagemController(ISugerirViagemService sugerirViagemService, IViagemService viagemService, IMapper mapper)
         {
             this.sugerirViagemService = sugerirViagemService;
+            this.viagemService = viagemService;
             this.mapper = mapper;
         }
 
@@ -52,6 +55,27 @@ namespace MaisTransporteWeb.Controllers
                 sugerirViagemService.Create(sugerirViagem);
             }
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AceitarViagem(int id)
+        {
+            var sugestaoViagem = sugerirViagemService.Get(id);
+
+            if (sugestaoViagem != null)
+            {
+                // Mapeia a Sugestaoviagem para Viagem
+                var viagem = mapper.Map<Viagem>(sugestaoViagem);
+
+                // Salva a nova viagem no banco de dados
+                viagemService.Create(viagem);
+
+                // Remove a sugestão de viagem do banco de dados
+                sugerirViagemService.Delete(id);
+            }
+
+            return RedirectToAction("Index", "Viagem"); // Redireciona para a tela de viagens
         }
     }
 }
