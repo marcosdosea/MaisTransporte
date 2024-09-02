@@ -1,10 +1,9 @@
 ﻿@model MaisTransporteWeb.Models.SugerirViagemViewModel
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
 @{
     ViewData["Title"] = "Detalhes da Sugestão de Viagem";
 }
-
-<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
 <div class="text-center">
     <h4>Detalhes da Sugestão de Viagem</h4>
@@ -82,7 +81,18 @@
             <a asp-action="Index" class="btn btn-danger">CANCELAR</a>
         </div>
         <div class="col-6 w3-left-align">
-            <button type="button" class="btn btn-success" onclick="alert('Aceitar a viagem?')">ACEITAR VIAGEM</button>
+            <form asp-action="AceitarViagem" asp-controller="SugerirViagem" method="post" onsubmit="confirmarAceitarViagem(event)">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <button type="submit" class="btn btn-success">ACEITAR VIAGEM</button>
+            </form>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    function confirmarAceitarViagem(event) {
+        if (!confirm("Você realmente deseja aceitar esta viagem?")) {
+            event.preventDefault(); // Cancela a submissão do formulário
+        }
+    }
+</script>
