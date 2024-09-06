@@ -28,6 +28,17 @@ namespace Service
             return sugestaoviagem.Id;
         }
 
+        public void Delete(int id)
+        {
+            var sugestaoViagem = _context.Sugestaoviagems.Find(id);
+            if (sugestaoViagem != null)
+            {
+                _context.Sugestaoviagems.Remove(sugestaoViagem);
+                _context.SaveChanges();
+            }
+        }
+
+
         public Sugestaoviagem Get(int id)
         {
             return _context.Sugestaoviagems.Find(id);

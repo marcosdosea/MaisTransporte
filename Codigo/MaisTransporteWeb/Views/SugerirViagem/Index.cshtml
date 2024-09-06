@@ -1,10 +1,9 @@
 ﻿@model IEnumerable<MaisTransporteWeb.Models.SugerirViagemViewModel>
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
 @{
     ViewData["Title"] = "Viagens Sugeridas";
 }
-
-<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
 <div class="text-center">
     <h3>Viagens Sugeridas</h3>
@@ -23,7 +22,10 @@
             <h5>@Html.DisplayNameFor(model => model.Titulo): @Html.DisplayFor(modelItem => item.Titulo)</h5>
             <h6>@Html.DisplayNameFor(model => model.DataPartida): @Html.DisplayFor(modelItem => item.DataPartida)</h6>
             <h6>@Html.DisplayNameFor(model => model.TotalVagas): @Html.DisplayFor(modelItem => item.TotalVagas)</h6>
-            <button type="button" class="btn btn-success" onclick="alert('Aceitar a viagem?')">Aceitar Viagem</button>
+            <form asp-action="AceitarViagem" asp-controller="SugerirViagem" method="post" onsubmit="confirmarAceitarViagem(event)">
+                <input type="hidden" name="id" value="@item.Id" />
+                <button type="submit" class="btn btn-success">Aceitar Viagem</button>
+            </form>
             <p>
                 @Html.ActionLink("Mais detalhes", "Details", new { id=item.Id})
             </p>
@@ -40,3 +42,11 @@
     </div>
     <div class="col-3"></div>
 </div>
+
+<script type="text/javascript">
+    function confirmarAceitarViagem(event) {
+        if (!confirm("Você realmente deseja aceitar esta viagem?")) {
+            event.preventDefault(); // Cancela a submissão do formulário
+        }
+    }
+</script>
