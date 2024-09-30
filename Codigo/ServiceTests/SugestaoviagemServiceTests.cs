@@ -6,10 +6,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Service.Tests
 {
     [TestClass()]
-    public class SugerirViagemServiceTests
+    public class SugestaovagemServiceTests
     {
         private MaisTransporteContext _context;
-        private ISugerirViagemService _sugerirViagemService;
+        private ISugestaoviagemService _sugestaoviagemService;
 
         [TestInitialize]
         public void Initialize()
@@ -33,14 +33,14 @@ namespace Service.Tests
             _context.AddRange(sugestoes);
             _context.SaveChanges();
 
-            _sugerirViagemService = new SugerirViagemService(_context);
+            _sugestaoviagemService = new SugestaoviagemService(_context);
         }
 
         [TestMethod()]
         public void CreateTest()
         {
             //Act
-            _sugerirViagemService.Create(new Sugestaoviagem()
+            _sugestaoviagemService.Create(new Sugestaoviagem()
             {
                 Id = 2,
                 Titulo = "Festa dos Caretas",
@@ -55,8 +55,8 @@ namespace Service.Tests
                 IdPassageiro = 2
             });
             //Assert
-            Assert.AreEqual(2, _sugerirViagemService.GetAll().Count());
-            var sugestao = _sugerirViagemService.Get(2);
+            Assert.AreEqual(2, _sugestaoviagemService.GetAll().Count());
+            var sugestao = _sugestaoviagemService.Get(2);
             Assert.AreEqual("Festa dos Caretas", sugestao.Titulo);
             Assert.AreEqual("Itabaiana", sugestao.LocalOrigem);
             Assert.AreEqual("Ribeirópolis", sugestao.LocalDestino);
@@ -72,7 +72,7 @@ namespace Service.Tests
         [TestMethod()]
         public void GetTest()
         {
-            var sugestao = _sugerirViagemService.Get(1);
+            var sugestao = _sugestaoviagemService.Get(1);
             Assert.IsNotNull(sugestao);
             Assert.AreEqual("Fest Verão", sugestao.Titulo);
             Assert.AreEqual("Itabaiana", sugestao.LocalOrigem);
@@ -90,7 +90,7 @@ namespace Service.Tests
         public void GetAllTest()
         {
             //Act
-            var listaSugestao = _sugerirViagemService.GetAll();
+            var listaSugestao = _sugestaoviagemService.GetAll();
             //Assert
             Assert.IsInstanceOfType(listaSugestao, typeof(IEnumerable<Sugestaoviagem>));
             Assert.IsNotNull(listaSugestao);
@@ -103,7 +103,7 @@ namespace Service.Tests
         public void GetByLocalDestino()
         {
             //Act
-            var sugestoes = _sugerirViagemService.GetByLocalDestino("Aracaju");
+            var sugestoes = _sugestaoviagemService.GetByLocalDestino("Aracaju");
             //Assert
             Assert.IsNotNull(sugestoes);
             Assert.AreEqual(1, sugestoes.Count());
