@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MaisTransporteWeb.Models.SugerirViagemViewModel>
+﻿@model IEnumerable<MaisTransporteWeb.Models.SugestaoviagemViewModel>
 <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
 @{
@@ -22,7 +22,7 @@
             <h5>@Html.DisplayNameFor(model => model.Titulo): @Html.DisplayFor(modelItem => item.Titulo)</h5>
             <h6>@Html.DisplayNameFor(model => model.DataPartida): @Html.DisplayFor(modelItem => item.DataPartida)</h6>
             <h6>@Html.DisplayNameFor(model => model.TotalVagas): @Html.DisplayFor(modelItem => item.TotalVagas)</h6>
-            <form asp-action="AceitarViagem" asp-controller="SugerirViagem" method="post" onsubmit="confirmarAceitarViagem(event)">
+            <form asp-action="AceitarViagem" asp-controller="Sugestaoviagem" method="post" onsubmit="confirmarAceitarViagem(event)">
                 <input type="hidden" name="id" value="@item.Id" />
                 <button type="submit" class="btn btn-success">Aceitar Viagem</button>
             </form>
