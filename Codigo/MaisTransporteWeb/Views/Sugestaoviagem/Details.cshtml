@@ -81,7 +81,7 @@
             <a asp-action="Index" class="btn btn-danger">CANCELAR</a>
         </div>
         <div class="col-6 w3-left-align">
-            <form asp-action="AceitarViagem" asp-controller="SugerirViagem" method="post" onsubmit="confirmarAceitarViagem(event)">
+            <form asp-action="AceitarViagem" asp-controller="Sugestaoviagem" method="post" onsubmit="confirmarAceitarViagem(event)">
                 <input type="hidden" name="id" value="@Model.Id" />
                 <button type="submit" class="btn btn-success">ACEITAR VIAGEM</button>
             </form>
