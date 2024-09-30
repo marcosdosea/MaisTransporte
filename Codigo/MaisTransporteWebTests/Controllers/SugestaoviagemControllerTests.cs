@@ -10,28 +10,28 @@ using Moq;
 namespace MaisTransporteWeb.Controllers.Tests
 {
     [TestClass]
-    public class SugerirViagemControllerTest
+    public class SugestaoviagemControllerTest
     {
-        private static SugerirViagemController controller;
-        private ISugerirViagemService @object;
-        private IMapper mapper;
+        private static SugestaoviagemController controller;
 
         [TestInitialize]
         public void Initialize()
         {
             // Arrange
-            var mockService = new Mock<ISugerirViagemService>();
+            var mockServiceSugestao = new Mock<ISugestaoviagemService>();
+            var mockServiceViagem = new Mock<IViagemService>();
 
             IMapper mapper = new MapperConfiguration(cfg =>
-               cfg.AddProfile(new SugerirViagemProfile())).CreateMapper();
+               cfg.AddProfile(new SugestaoviagemProfile())).CreateMapper();
 
-            mockService.Setup(service => service.GetAll())
+            mockServiceSugestao.Setup(service => service.GetAll())
                .Returns(GetTestSugestoes());
-            mockService.Setup(service => service.Get(1))
+            mockServiceSugestao.Setup(service => service.Get(1))
                .Returns(GetTargetSugestao());
-            mockService.Setup(service => service.Create(It.IsAny<Sugestaoviagem>()))
+            mockServiceSugestao.Setup(service => service.Create(It.IsAny<Sugestaoviagem>()))
                .Verifiable();
-            controller = new SugerirViagemController(mockService.Object, mapper);
+
+            controller = new SugestaoviagemController(mockServiceSugestao.Object, mockServiceViagem.Object, mapper);
         }
 
         [TestMethod()]
@@ -43,9 +43,9 @@ namespace MaisTransporteWeb.Controllers.Tests
             // Assert
             Assert.IsInstanceOfType(result, typeof(ViewResult));
             ViewResult viewResult = (ViewResult)result;
-            Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(List<SugerirViagemViewModel>));
+            Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(List<SugestaoviagemViewModel>));
 
-            List<SugerirViagemViewModel>? lista = (List<SugerirViagemViewModel>)viewResult.ViewData.Model;
+            List<SugestaoviagemViewModel>? lista = (List<SugestaoviagemViewModel>)viewResult.ViewData.Model;
             Assert.AreEqual(2, lista.Count);
         }
 
@@ -58,19 +58,19 @@ namespace MaisTransporteWeb.Controllers.Tests
             // Assert
             Assert.IsInstanceOfType(result, typeof(ViewResult));
             ViewResult viewResult = (ViewResult)result;
-            Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(SugerirViagemViewModel));
-            SugerirViagemViewModel sugerirViagemViewModel = (SugerirViagemViewModel)viewResult.ViewData.Model;
+            Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(SugestaoviagemViewModel));
+            SugestaoviagemViewModel sugestaoviagemViewModel = (SugestaoviagemViewModel)viewResult.ViewData.Model;
 
-            Assert.AreEqual("Fest Verão", sugerirViagemViewModel.Titulo);
-            Assert.AreEqual("Itabaiana", sugerirViagemViewModel.LocalOrigem);
-            Assert.AreEqual("Aracaju", sugerirViagemViewModel.LocalDestino);
-            Assert.AreEqual(30, sugerirViagemViewModel.ValorPassagem);
-            Assert.AreEqual(15, sugerirViagemViewModel.TotalVagas);
-            Assert.AreEqual(DateTime.Parse("2023-08-01"), sugerirViagemViewModel.DataPartida);
-            Assert.AreEqual(DateTime.Parse("2023-08-02"), sugerirViagemViewModel.DataChegada);
-            Assert.AreEqual("Viagem com segurança, conforto e preço baixo.", sugerirViagemViewModel.Descricao);
-            Assert.AreEqual("Pública", sugerirViagemViewModel.Visibilidade);
-            Assert.AreEqual(1, sugerirViagemViewModel.IdPassageiro);
+            Assert.AreEqual("Fest Verão", sugestaoviagemViewModel.Titulo);
+            Assert.AreEqual("Itabaiana", sugestaoviagemViewModel.LocalOrigem);
+            Assert.AreEqual("Aracaju", sugestaoviagemViewModel.LocalDestino);
+            Assert.AreEqual(30, sugestaoviagemViewModel.ValorPassagem);
+            Assert.AreEqual(15, sugestaoviagemViewModel.TotalVagas);
+            Assert.AreEqual(DateTime.Parse("2023-08-01"), sugestaoviagemViewModel.DataPartida);
+            Assert.AreEqual(DateTime.Parse("2023-08-02"), sugestaoviagemViewModel.DataChegada);
+            Assert.AreEqual("Viagem com segurança, conforto e preço baixo.", sugestaoviagemViewModel.Descricao);
+            Assert.AreEqual("Pública", sugestaoviagemViewModel.Visibilidade);
+            Assert.AreEqual(1, sugestaoviagemViewModel.IdPassageiro);
         }
 
         [TestMethod()]
@@ -113,9 +113,9 @@ namespace MaisTransporteWeb.Controllers.Tests
             Assert.AreEqual("Index", redirectToActionResult.ActionName);
         }
 
-        private SugerirViagemViewModel GetNewSugestao()
+        private SugestaoviagemViewModel GetNewSugestao()
         {
-            return new SugerirViagemViewModel
+            return new SugestaoviagemViewModel
             {
                 Id = 3,
                 Titulo = "Festa dos Caretas",
@@ -149,9 +149,9 @@ namespace MaisTransporteWeb.Controllers.Tests
             };
         }
 
-        private SugerirViagemViewModel GetTargetSugerirViagemViewModel()
+        private SugestaoviagemViewModel GetTargetSugerirViagemViewModel()
         {
-            return new SugerirViagemViewModel
+            return new SugestaoviagemViewModel
             {
                 Id = 2,
                 Titulo = "Fest Verão",
