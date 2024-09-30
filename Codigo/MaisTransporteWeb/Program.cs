@@ -19,7 +19,7 @@ namespace MaisTransporteWeb
             builder.Services.AddControllersWithViews();
             //inje��o depend�ncia Services
             builder.Services.AddTransient<IViagemService, ViagemService>();
-            builder.Services.AddTransient<ISugerirViagemService, SugerirViagemService>();
+            builder.Services.AddTransient<ISugestaoviagemService, SugestaoviagemService>();
             builder.Services.AddTransient<IUsuarioService, UsuarioService>();
             builder.Services.AddTransient<IVeiculoService, VeiculoService>();
             builder.Services.AddTransient<IMotoristaService, MotoristaService>();

@@ -20,7 +20,7 @@ namespace MaisTransporteAPI
 
             builder.Services.AddTransient<IUsuarioService, UsuarioService>();
             builder.Services.AddTransient<IViagemService, ViagemService>();
-            builder.Services.AddTransient<ISugerirViagemService, SugerirViagemService>();
+            builder.Services.AddTransient<ISugestaoviagemService, SugestaoviagemService>();
             builder.Services.AddTransient<IVeiculoService, VeiculoService>();
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
