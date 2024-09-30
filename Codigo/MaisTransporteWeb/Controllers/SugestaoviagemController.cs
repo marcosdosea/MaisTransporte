@@ -14,9 +14,9 @@ namespace MaisTransporteWeb.Controllers
         private readonly IViagemService _viagemService;
         private readonly IMapper _mapper;
 
-        public SugestaoviagemController(ISugestaoviagemService sugerirViagemService, IViagemService viagemService, IMapper mapper)
+        public SugestaoviagemController(ISugestaoviagemService sugestaoviagemService, IViagemService viagemService, IMapper mapper)
         {
-            _sugestaoviagemService = sugerirViagemService;
+            _sugestaoviagemService = sugestaoviagemService;
             _viagemService = viagemService;
             _mapper = mapper;
         }
