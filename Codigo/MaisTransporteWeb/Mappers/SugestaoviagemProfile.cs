@@ -4,11 +4,11 @@ using Core;
 
 namespace MaisTransporteWeb.Mappers
 {
-    public class SugerirViagemProfile : Profile
+    public class SugestaoviagemProfile : Profile
     {
-        public SugerirViagemProfile()
+        public SugestaoviagemProfile()
         {
-            CreateMap<SugerirViagemViewModel, Sugestaoviagem>().ReverseMap();
+            CreateMap<SugestaoviagemViewModel, Sugestaoviagem>().ReverseMap();
 
             // Mapeamento de Sugestaoviagem para Viagem
             CreateMap<Sugestaoviagem, Viagem>()

@@ -1,6 +1,6 @@
 ﻿namespace Core.DTO
 {
-    public class SugerirViagemDto
+    public class SugestaoviagemDto
     {
         public int Id { get; set; }
         public string LocalDestino { get; set; } = null!;

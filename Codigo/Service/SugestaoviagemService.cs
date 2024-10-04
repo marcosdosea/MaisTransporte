@@ -7,11 +7,11 @@ namespace Service
     /// <summary>
     /// Manter dados de sugestões de viagens no banco de dados
     /// </summary>
-    public class SugerirViagemService : ISugerirViagemService
+    public class SugestaoviagemService : ISugestaoviagemService
     {
         private readonly MaisTransporteContext _context;
 
-        public SugerirViagemService(MaisTransporteContext context)
+        public SugestaoviagemService(MaisTransporteContext context)
         {
             _context = context;
         }
@@ -58,13 +58,13 @@ namespace Service
         /// </summary>
         /// <param name="localDestino">localDestino a ser buscado</param>
         /// <returns></returns>
-        public IEnumerable<SugerirViagemDto> GetByLocalDestino(string localDestino)
+        public IEnumerable<SugestaoviagemDto> GetByLocalDestino(string localDestino)
         {
             IQueryable<Sugestaoviagem> tb_sugestaoViagem = _context.Sugestaoviagems;
             var query = from sugestaoviagem in tb_sugestaoViagem
                         where localDestino.StartsWith(localDestino)
                         orderby sugestaoviagem.LocalDestino descending
-                        select new SugerirViagemDto
+                        select new SugestaoviagemDto
                         {
                             LocalDestino = sugestaoviagem.LocalDestino
                         };
